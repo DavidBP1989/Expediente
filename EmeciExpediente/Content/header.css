@@ -1,0 +1,10 @@
+.app-header {
+  /**
+   * Top bar
+   * Incluye enlaces  en color blanco y fondo en color primario.
+   */ }
+  .app-header .top-bar {
+    background-color: #ee4f9c;
+    text-align: right; }
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="emeciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'emeci.dbo.Ciudades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="idciudad" />
+          </Key>
+          <Property Name="idciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="idEstado" Type="nvarchar" MaxLength="2" />
+          <Property Name="IdPais" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'emeci.dbo.Estados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="idEstado" />
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="idEstado" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdPais" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'emeci.dbo.viewMedico' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewMedico">
+          <Key>
+            <PropertyRef Name="idmedico" />
+          </Key>
+          <Property Name="idmedico" Type="int" Nullable="false" />
+          <Property Name="AgrupacionLocal" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgrupacionNacional" Type="nvarchar" MaxLength="50" />
+          <Property Name="CedulaEspecialidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="CedulaProfesional" Type="nvarchar" MaxLength="50" />
+          <Property Name="DomicilioConsultorio" Type="nvarchar" MaxLength="50" />
+          <Property Name="HospitalResidenciaPediatra" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoRegSSA" Type="nvarchar" MaxLength="50" />
+          <Property Name="PediatraPlus" Type="tinyint" />
+          <Property Name="UniversidadEspecialidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="CertCMCP" Type="nvarchar" MaxLength="50" />
+          <Property Name="RFC" Type="nvarchar" MaxLength="20" />
+          <Property Name="TelefonoConsultorio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodigoPostal" Type="nvarchar" MaxLength="5" />
+          <Property Name="Colonia" Type="nvarchar" MaxLength="150" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="150" />
+          <Property Name="Emails" Type="nvarchar" MaxLength="150" />
+          <Property Name="NoExt" Type="nvarchar" MaxLength="5" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoCel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="1" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="especialidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoPediatra" Type="varchar" MaxLength="9" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'emeci.dbo.viewMedicos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewMedicos">
+          <Key>
+            <PropertyRef Name="Idmedico" />
+            <PropertyRef Name="codigopostal" />
+            <PropertyRef Name="NoExt" />
+          </Key>
+          <Property Name="Idmedico" Type="int" Nullable="false" />
+          <Property Name="CedulaProfesional" Type="nvarchar" MaxLength="50" />
+          <Property Name="CedulaEspecialidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="CertCMCP" Type="nvarchar" MaxLength="50" />
+          <Property Name="RFC" Type="nvarchar" MaxLength="20" />
+          <Property Name="PediatraPlus" Type="tinyint" />
+          <Property Name="NoRegSSA" Type="nvarchar" MaxLength="50" />
+          <Property Name="DomicilioConsultorio" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoConsultorio" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoFax" Type="nvarchar" MaxLength="50" />
+          <Property Name="codigopostal" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="NoExt" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="150" />
+          <Property Name="Colonia" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoCel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emails" Type="nvarchar" MaxLength="150" />
+          <Property Name="FechaRenovacion" Type="smalldatetime" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="especialidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="idEstado" Type="nvarchar" MaxLength="2" />
+          <Property Name="IdPais" Type="nvarchar" MaxLength="2" />
+          <Property Name="idciudad" Type="int" />
+        </EntityType>
+        <EntityContainer Name="emeciModelStoreContainer">
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Ciudades].[idciudad] AS [idciudad], 
+    [Ciudades].[Nombre] AS [Nombre], 
+    [Ciudades].[idEstado] AS [idEstado], 
+    [Ciudades].[IdPais] AS [IdPais]
+    FROM [dbo].[Ciudades] AS [Ciudades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Estados" EntityType="Self.Estados" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Estados].[idEstado] AS [idEstado], 
+    [Estados].[Nombre] AS [Nombre], 
+    [Estados].[IdPais] AS [IdPais], 
+    [Estados].[codigo] AS [codigo]
+    FROM [dbo].[Estados] AS [Estados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewMedico" EntityType="Self.viewMedico" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewMedico].[idmedico] AS [idmedico], 
+    [viewMedico].[AgrupacionLocal] AS [AgrupacionLocal], 
+    [viewMedico].[AgrupacionNacional] AS [AgrupacionNacional], 
+    [viewMedico].[CedulaEspecialidad] AS [CedulaEspecialidad], 
+    [viewMedico].[CedulaProfesional] AS [CedulaProfesional], 
+    [viewMedico].[DomicilioConsultorio] AS [DomicilioConsultorio], 
+    [viewMedico].[HospitalResidenciaPediatra] AS [HospitalResidenciaPediatra], 
+    [viewMedico].[NoRegSSA] AS [NoRegSSA], 
+    [viewMedico].[PediatraPlus] AS [PediatraPlus], 
+    [viewMedico].[UniversidadEspecialidad] AS [UniversidadEspecialidad], 
+    [viewMedico].[CertCMCP] AS [CertCMCP], 
+    [viewMedico].[RFC] AS [RFC], 
+    [viewMedico].[TelefonoConsultorio] AS [TelefonoConsultorio], 
+    [viewMedico].[Apellido] AS [Apellido], 
+    [viewMedico].[CodigoPostal] AS [CodigoPostal], 
+    [viewMedico].[Colonia] AS [Colonia], 
+    [viewMedico].[Domicilio] AS [Domicilio], 
+    [viewMedico].[Emails] AS [Emails], 
+    [viewMedico].[NoExt] AS [NoExt], 
+    [viewMedico].[Nombre] AS [Nombre], 
+    [viewMedico].[Telefono] AS [Telefono], 
+    [viewMedico].[TelefonoCel] AS [TelefonoCel], 
+    [viewMedico].[Tipo] AS [Tipo], 
+    [viewMedico].[ciudad] AS [ciudad], 
+    [viewMedico].[especialidad] AS [especialidad], 
+    [viewMedico].[estado] AS [estado], 
+    [viewMedico].[TipoPediatra] AS [TipoPediatra]
+    FROM [dbo].[viewMedico] AS [viewMedico]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewMedicos" EntityType="Self.viewMedicos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewMedicos].[Idmedico] AS [Idmedico], 
+    [viewMedicos].[CedulaProfesional] AS [CedulaProfesional], 
+    [viewMedicos].[CedulaEspecialidad] AS [CedulaEspecialidad], 
+    [viewMedicos].[CertCMCP] AS [CertCMCP], 
+    [viewMedicos].[RFC] AS [RFC], 
+    [viewMedicos].[PediatraPlus] AS [PediatraPlus], 
+    [viewMedicos].[NoRegSSA] AS [NoRegSSA], 
+    [viewMedicos].[DomicilioConsultorio] AS [DomicilioConsultorio], 
+    [viewMedicos].[TelefonoConsultorio] AS [TelefonoConsultorio], 
+    [viewMedicos].[TelefonoFax] AS [TelefonoFax], 
+    [viewMedicos].[codigopostal] AS [codigopostal], 
+    [viewMedicos].[NoExt] AS [NoExt], 
+    [viewMedicos].[Nombre] AS [Nombre], 
+    [viewMedicos].[Apellido] AS [Apellido], 
+    [viewMedicos].[Domicilio] AS [Domicilio], 
+    [viewMedicos].[Colonia] AS [Colonia], 
+    [viewMedicos].[Telefono] AS [Telefono], 
+    [viewMedicos].[TelefonoCel] AS [TelefonoCel], 
+    [viewMedicos].[Emails] AS [Emails], 
+    [viewMedicos].[FechaRenovacion] AS [FechaRenovacion], 
+    [viewMedicos].[ciudad] AS [ciudad], 
+    [viewMedicos].[especialidad] AS [especialidad], 
+    [viewMedicos].[Estado] AS [Estado], 
+    [viewMedicos].[idEstado] AS [idEstado], 
+    [viewMedicos].[IdPais] AS [IdPais], 
+    [viewMedicos].[idciudad] AS [idciudad]
+    FROM [dbo].[viewMedicos] AS [viewMedicos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="emeciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="viewMedicos">
+          <Key>
+            <PropertyRef Name="Idmedico" />
+            <PropertyRef Name="codigopostal" />
+            <PropertyRef Name="NoExt" />
+          </Key>
+          <Property Name="Idmedico" Type="Int32" Nullable="false" />
+          <Property Name="CedulaProfesional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CedulaEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CertCMCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PediatraPlus" Type="Byte" />
+          <Property Name="NoRegSSA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DomicilioConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codigopostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoExt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Domicilio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Colonia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoCel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRenovacion" Type="DateTime" Precision="0" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="idciudad" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="emeciEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="viewMedicos" EntityType="Self.viewMedicos" />
+          <EntitySet Name="Ciudades" EntityType="emeciModel.Ciudades" />
+          <EntitySet Name="Estados" EntityType="emeciModel.Estados" />
+          <EntitySet Name="viewMedico" EntityType="emeciModel.viewMedico" />
+        </EntityContainer>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="idciudad" />
+          </Key>
+          <Property Name="idciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="idEstado" />
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="idEstado" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdPais" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="viewMedico">
+          <Key>
+            <PropertyRef Name="idmedico" />
+          </Key>
+          <Property Name="idmedico" Type="Int32" Nullable="false" />
+          <Property Name="AgrupacionLocal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgrupacionNacional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CedulaEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CedulaProfesional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DomicilioConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HospitalResidenciaPediatra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoRegSSA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PediatraPlus" Type="Byte" />
+          <Property Name="UniversidadEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CertCMCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Colonia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Domicilio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NoExt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoCel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoPediatra" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="emeciModelStoreContainer" CdmEntityContainer="emeciEntities">
+          <EntitySetMapping Name="viewMedicos">
+            <EntityTypeMapping TypeName="emeciModel.viewMedicos">
+              <MappingFragment StoreEntitySet="viewMedicos">
+                <ScalarProperty Name="idciudad" ColumnName="idciudad" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="Idmedico" ColumnName="Idmedico" />
+                <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+                <ScalarProperty Name="CedulaEspecialidad" ColumnName="CedulaEspecialidad" />
+                <ScalarProperty Name="CertCMCP" ColumnName="CertCMCP" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="PediatraPlus" ColumnName="PediatraPlus" />
+                <ScalarProperty Name="NoRegSSA" ColumnName="NoRegSSA" />
+                <ScalarProperty Name="DomicilioConsultorio" ColumnName="DomicilioConsultorio" />
+                <ScalarProperty Name="TelefonoConsultorio" ColumnName="TelefonoConsultorio" />
+                <ScalarProperty Name="TelefonoFax" ColumnName="TelefonoFax" />
+                <ScalarProperty Name="codigopostal" ColumnName="codigopostal" />
+                <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="TelefonoCel" ColumnName="TelefonoCel" />
+                <ScalarProperty Name="Emails" ColumnName="Emails" />
+                <ScalarProperty Name="FechaRenovacion" ColumnName="FechaRenovacion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="emeciModel.Ciudades">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idciudad" ColumnName="idciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="emeciModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewMedico">
+            <EntityTypeMapping TypeName="emeciModel.viewMedico">
+              <MappingFragment StoreEntitySet="viewMedico">
+                <ScalarProperty Name="TipoPediatra" ColumnName="TipoPediatra" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="TelefonoCel" ColumnName="TelefonoCel" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+                <ScalarProperty Name="Emails" ColumnName="Emails" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="TelefonoConsultorio" ColumnName="TelefonoConsultorio" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="CertCMCP" ColumnName="CertCMCP" />
+                <ScalarProperty Name="UniversidadEspecialidad" ColumnName="UniversidadEspecialidad" />
+                <ScalarProperty Name="PediatraPlus" ColumnName="PediatraPlus" />
+                <ScalarProperty Name="NoRegSSA" ColumnName="NoRegSSA" />
+                <ScalarProperty Name="HospitalResidenciaPediatra" ColumnName="HospitalResidenciaPediatra" />
+                <ScalarProperty Name="DomicilioConsultorio" ColumnName="DomicilioConsultorio" />
+                <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+                <ScalarProperty Name="CedulaEspecialidad" ColumnName="CedulaEspecialidad" />
+                <ScalarProperty Name="AgrupacionNacional" ColumnName="AgrupacionNacional" />
+                <ScalarProperty Name="AgrupacionLocal" ColumnName="AgrupacionLocal" />
+                <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

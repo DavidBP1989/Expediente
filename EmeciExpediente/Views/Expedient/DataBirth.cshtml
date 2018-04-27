@@ -1,0 +1,485 @@
+﻿
+@{
+    ViewBag.Title = "DataBirth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/Scripts/Expedient/DataBirth.js");
+
+}
+
+@model ModelDataBirth
+@using (Html.BeginForm("DataBirth", "Expedient", FormMethod.Post, new { @id = "BirthForm" }))
+{
+    <div class="section-header">
+        <h1>Antecedentes del Nacimiento</h1>
+        <p class="description">
+            Esta informaci&oacute;n puede ser actualizada cada vez que sea necesario para
+            as&iacute; mantener al d&iacute;a el expediente.
+        </p>
+        <div class="section-controls">
+            <a onclick="Post()" class="btn btn-primary">Guardar Cambios</a>
+        </div>
+    </div>
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Informaci&oacute;n del Nacimiento</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.birthDate, "Fecha de nacimiento")
+                            @Html.TextBoxFor(x => x.birthDate, null, new { @class = "form-control calendar"})
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.birthPlace, "Lugar de nacimiento")
+                            @Html.TextBoxFor(x => x.birthPlace, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.birthHospital, "Hospital o área física de nacimiento")
+                            @Html.TextBoxFor(x => x.birthHospital, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Embarazo</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.pregnantNumber, "No. al que pertenece")
+                            @Html.DropDownListFor(x => x.pregnantNumber, 
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "1", Value = "0" },
+                                new SelectListItem { Text = "2", Value = "1" },
+                                new SelectListItem { Text = "3", Value = "2" },
+                                new SelectListItem { Text = "4", Value = "3" },
+                                new SelectListItem { Text = "5", Value = "4" },
+                                new SelectListItem { Text = "6", Value = "5" },
+                                new SelectListItem { Text = "7", Value = "6" },
+                                new SelectListItem { Text = "8", Value = "7" },
+                                new SelectListItem { Text = "9", Value = "8" },
+                                new SelectListItem { Text = "10", Value = "9" },
+                                new SelectListItem { Text = "11", Value = "10" },
+                                new SelectListItem { Text = "12", Value = "11" },
+                                new SelectListItem { Text = "13", Value = "12" },
+                                new SelectListItem { Text = "14", Value = "13" },
+                                new SelectListItem { Text = "15 o más", Value = "14" }
+                            }, new { @class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.abortions, "Abortos previos")
+                            @Html.DropDownListFor(x => x.abortions,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10 o más", Value = "10" },
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.pregnantType, "Tipo")
+                            @Html.DropDownListFor(x => x.pregnantType,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "Único", Value = "0" },
+                                new SelectListItem { Text = "Múltiple -->", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="showPregnantType" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.pregnantTypeInfo, "Especifique")
+                            @Html.DropDownListFor(x => x.pregnantTypeInfo,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "Gemelar", Value = "0" },
+                                new SelectListItem { Text = "3 o más", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.obtainedByBirth, "Obtenido por parto")
+                            @Html.DropDownListFor(x => x.obtainedByBirth,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Normal (Eutócico)", Value = "0" },
+                                new SelectListItem { Text = "Patológico (Distócico) -->", Value = "1" }
+                            }, new { @class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.mortinatos, "Mortinatos")
+                            @Html.DropDownListFor(x => x.mortinatos,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10 o más", Value = "10" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.gestationalAge, "Edad Gestacional")
+                            @Html.DropDownListFor(x => x.gestationalAge, ViewBag.gestationalAge as IEnumerable<SelectListItem>, new { @class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.gestationalAgeBy, "Edad Gestacional Por")
+                            @Html.DropDownListFor(x => x.gestationalAgeBy,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "Usher", Value = "0" },
+                                new SelectListItem { Text = "Capurro", Value = "1" },
+                                new SelectListItem { Text = "Ballard", Value = "2" },
+                                new SelectListItem { Text = "No definida", Value = "3" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <formfield id="showPatologico">
+                    <legend>Detalles del Parto Patol&oacute;gio (Dist&oacute;cico)</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.typeDistocia, "Tipo de distocia")
+                                @Html.DropDownListFor(x => x.typeDistocia,
+                                new List<SelectListItem> {
+                                    new SelectListItem { Text = "Cesárea", Value = "0" },
+                                    new SelectListItem { Text = "fórceps", Value = "1" },
+                                    new SelectListItem { Text = "Otros -->", Value = "2" }
+                                }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div id="showTypeDistocia" class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.typeDistociaInfo, "Mencione")
+                                @Html.TextBoxFor(x => x.typeDistociaInfo, null, new { @class = "form-control"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.reasonDistocia, "Motivo de la distocia")
+                                @Html.DropDownListFor(x => x.reasonDistocia,
+                                new List<SelectListItem> {
+                                    new SelectListItem { Text = "Sufrimiento fetal agudo", Value = "0" },
+                                    new SelectListItem { Text = "Postura anómala", Value = "1" },
+                                    new SelectListItem { Text = "Prematurez", Value = "2" },
+                                    new SelectListItem { Text = "Otros -->", Value = "3" }
+                                }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div id="showReasonDistocia" class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.reasonDistociaInfo, "Mencione")
+                                @Html.TextBoxFor(x => x.reasonDistociaInfo, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </formfield>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.birthWeight, "Peso al nacimiento (Gramos)")
+                            @Html.TextBoxFor(x => x.birthWeight, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.birthSize, "Talla al nacimiento (Cm)")
+                            @Html.TextBoxFor(x => x.birthSize, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.cefalico, "Perímetro cefálico (Cm)")
+                            @Html.TextBoxFor(x => x.cefalico, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.scoreApgar1, "Calificación de Apgar al minuto")
+                            @Html.DropDownListFor(x => x.scoreApgar1,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10", Value = "10" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.scoreApgar5, "Calificación de Apgar a los 5 minutos")
+                            @Html.DropDownListFor(x => x.scoreApgar5,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10", Value = "10" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.scoreSilverman1, "Calificación de Silverman al minuto")
+                            @Html.DropDownListFor(x => x.scoreSilverman1,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10", Value = "10" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.scoreSilverman5, "Calificación de Silverman a los 5 minutos")
+                            @Html.DropDownListFor(x => x.scoreSilverman5,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "0", Value = "0" },
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "4", Value = "4" },
+                                new SelectListItem { Text = "5", Value = "5" },
+                                new SelectListItem { Text = "6", Value = "6" },
+                                new SelectListItem { Text = "7", Value = "7" },
+                                new SelectListItem { Text = "8", Value = "8" },
+                                new SelectListItem { Text = "9", Value = "9" },
+                                new SelectListItem { Text = "10", Value = "10" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.tamiz, "¿Se realizó Tamiz neonatal?")
+                            @Html.DropDownListFor(x => x.tamiz,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "No", Value = "0" },
+                                new SelectListItem { Text = "Si -->", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div id="showFolio" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.folio, "Número de folio")
+                            @Html.TextBoxFor(x => x.folio, null, new { @class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Complicaciones INMEDIATAS al nacimiento</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicationIn, "Complicaciones")
+                            @Html.TextBoxFor(x => x.complicationIn, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.controlIn, "Manejo")
+                            @Html.TextBoxFor(x => x.controlIn, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Complicaciones MEDIATAS al nacimiento</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicationMe, "Complicaciones")
+                            @Html.TextBoxFor(x => x.complicationMe, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.controlMe, "Manejo")
+                            @Html.TextBoxFor(x => x.controlMe, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Lactancia</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.lactancia, "Lactancia Materna")
+                            @Html.DropDownListFor(x => x.lactancia,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "Si -->", Value = "0" },
+                                new SelectListItem { Text = "No", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="showTypeLactancia" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.typeLactancia, "Tipo de Lactancia")
+                            @Html.DropDownListFor(x => x.typeLactancia,
+                            new List<SelectListItem> {
+                                new SelectListItem { Text = "Esclusiva", Value = "0" },
+                                new SelectListItem { Text = "Combinada -->", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="showFormula" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.formula, "Nombre de la formula")
+                            @Html.TextBoxFor(x => x.formula, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.reduccion, "Motivo de Reducción")
+                            @Html.TextBoxFor(x => x.reduccion, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.suspension, "Motivo de Suspensión")
+                            @Html.TextBoxFor(x => x.suspension, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class="panel-title">Mas informaci&oacute;n</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.sanguineo, "Grupo Sanguíneo")
+                            @Html.TextBoxFor(x => x.sanguineo, null, new { @class = "form-control" })
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.date, "Fecha de la primera consulta pediatrica")
+                            @Html.TextBoxFor(x => x.date, null, new { @class = "form-control calendar" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-target="#saveModal" data-toggle="modal" id="showModal"></a>
+    <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Antecedentes del Nacimiento</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+
+    $(function (){
+        var data = @Html.Raw(Json.Encode(Model));
+        Init(data);
+
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack)
+            $('#showModal').trigger('click', function() {});
+    })
+</script>
+

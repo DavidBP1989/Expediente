@@ -1,0 +1,147 @@
+$fondo-menu: #1c5a9e;
+
+.main-tabs {
+  background-color: $fondo-menu;
+  width: 120px;
+  padding: 20px 0;
+  flex-shrink: 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0;
+      margin: 0 0 15px;
+
+
+      .icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        opacity: 0.9;
+
+        background-repeat: no-repeat;
+        background-position: center;
+
+      }
+
+      // Iconos para menu de tabs.
+      .icon.resumen {
+        background-image: url("../images/icono-resumen.png");
+      }
+
+      .icon.generales {
+        background-image: url("../images/icono-generales.png");
+      }
+
+      .icon.consultas {
+        background-image: url("../images/icono-consultas.png");
+      }
+
+      .icon.antecedentes {
+        background-image: url("../images/icono-antecedentes.png");
+      }
+
+      .icon.nacimiento {
+        background-image: url("../images/icono-nacimiento.png");
+      }
+
+      .icon.vacunas {
+        background-image: url("../images/icono-vacunas.png");
+      }
+
+      .icon.estudios {
+        background-image: url("../images/icono-estudios.png");
+      }
+
+      .icon.imagenes {
+        background-image: url("../images/icono-imagenes.png");
+      }
+
+      .icon.gineco {
+        background-image: url("../images/icono-gineco.png");
+      }
+
+      .icon.otras-consultas {
+        background-image: url("../images/icono-otras-consultas.png");
+      }
+
+      a {
+        display: block;
+        text-align: center;
+
+        .label {
+          color: #bfe6ff;
+          font-size: 14px;
+          font-weight: 300;
+          padding: 0;
+
+        }
+
+      }
+
+    }
+  }
+}
+
+
+.sub-menu {
+  padding: 30px 30px 20px;
+
+  li.active  a {
+    background-color: #1c5a9e;
+  }
+
+  li a {
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+}
+
+
+
+
+@media only screen
+   and (max-device-width : 820px) {
+
+  .app-wrapper {
+    min-width: 320px;
+  }
+
+  .app-container {
+
+    .main-tabs {
+      display: none;
+    }
+
+    .main-tabs.show-me {
+
+      position: fixed;
+      z-index: 9999;
+
+      top: 34px;
+      width: 100%;
+      display: block;
+
+      ul li {
+        width: 32%;
+        display: inline-block;
+        vertical-align: top;
+
+        .label {
+          white-space: normal;
+        }
+
+      }
+
+    }
+
+  }
+
+  .logo {
+    display: none;
+  }
+}

@@ -1,0 +1,450 @@
+/* Scss Document */
+/* EMECI website v2 */
+/* Dev and Design: Norman Cossio
+/* Sep, 2016 */
+
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900';
+ 
+
+@import 'variables';
+@import 'pages';
+@import 'especialistas';
+
+
+body {
+	background-color: $colorFondo;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: $colorTextoDefault;
+	font-size:16px
+}
+
+
+h1 {
+	font-weight: 900;
+	color: $colorPrimario;
+}
+
+h2 {
+	font-weight:900 
+}
+
+p {
+	line-height: 1.5em;
+}
+
+.intro {
+	line-height: 1.2em;
+}
+
+
+
+/* Personalizacion de botones */
+
+.btn {
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 18px;
+	border-radius: 30px;
+	padding: 10px 30px;
+	border: 0;
+	letter-spacing: 1px;
+}
+
+.btn-primary {
+	background-color: $btn_bg_predeterminado;
+}
+
+
+form {
+	
+	input.form-control,
+	textarea.form-control {
+		
+		background: #F7F7F8;
+		border: 1px solid #E7E7E7;	
+		font-size: 16px;
+		box-shadow:none;
+		height:44px;
+		
+	}
+	
+	label {
+		font-weight:normal
+	}
+	
+	input.checkbox.inline {
+		display:inline-block;
+		margin-right: 10px;
+	}
+
+}
+
+
+/* Personalizacion de botones */
+
+.navbar-custom {
+    background-color: transparent;
+    padding: 10px 0;
+    -webkit-transition: padding .3s;
+    -moz-transition: padding .3s;
+    transition: padding .3s;
+    border: none;
+	margin-bottom:20px;
+	
+	
+	.top-links {
+		
+		margin-bottom: 20px;
+		
+		li {
+			margin-left: 20px;
+		}	
+	}
+	
+	.navbar-nav {
+		margin-bottom: 20px;	
+	}
+	
+	.navbar-nav > li > a {
+		color: #111; 
+		font-weight: 600;
+		font-size:18px;
+		padding: 10px 25px;
+	}
+	
+	.navbar-nav > li > a.btn-primary {
+		background-color: $colorPrimario;
+		color: #fff;
+		font-size:16px; 
+	}  
+		
+	
+	
+	
+}
+
+
+.shrink {
+		background-color: rgba( 254, 254, 254, 0.98);
+		transition: all .2s ease-in-out;
+}
+
+
+
+ 
+
+header.homepage {
+	background-image: url(../images/fondo-hero-portada.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
+	
+	min-height: 700px;
+	
+	
+	.intro {
+		padding-top: 530px;
+		
+		
+		a {
+			text-decoration: none;
+			color: #fff;
+			
+			p {
+				opacity: 0.9
+			}
+		}
+		 
+		h2 {
+			font-weight: 400;
+			margin:0;
+		} 
+	}
+	
+	
+	.intro-pacientes {
+		background-color: $colorPrimario;
+		padding:  30px;
+		text-align:left;
+		margin:0 25px;
+		
+		 
+	}
+	
+	.intro-medicos {
+		background-color: $colorSecundario;
+		padding: 30px;
+		text-align:left;
+		margin:0 25px;
+		
+		 
+	}
+	
+	
+}
+
+
+
+/* 
+    Seccion Informacion para Pacientes 
+------------------------------------------------------------ */
+#info-pacientes {
+	
+	background-color: $fondoPacientes;
+	padding: 100px 0;
+
+	h1 {
+		color: $colorPrimario;
+		font-size: 44px;
+		letter-spacing: 1.15px;
+
+	}
+	
+	h2 {
+		color: $colorPrimario;
+ 		opacity: 0.75;
+	
+	}
+	
+	.intro {		 
+		font-size: 24px;
+		color: #7289A3;
+		letter-spacing: 0.25px;
+		margin-bottom:60px;
+		padding:0 10%;
+	}
+	
+	.destacado-pacientes {
+		padding-left:90px;
+		background-repeat:no-repeat;
+	}
+	
+	.icono-seguridad {
+		background-image: url(../images/icono-seguridad.png);			
+	}
+	
+	.icono-economia {
+		background-image: url(../images/icono-economia.png);			
+	}
+	
+	.icono-confianza {
+		background-image: url(../images/icono-confianza.png);			
+	}
+	
+	.icono-confidencialidad {
+		background-image: url(../images/icono-confidencialidad.png);			
+	}
+	
+}
+
+
+
+/* 
+    Seccion Informacion para Medicos 
+------------------------------------------------------------ */
+#info-medicos {
+	
+	background-color: #F5F9FD;
+	
+	
+	.intro {
+		font-size: 24px;
+	}
+	
+	h1 {
+		color: $colorSecundario;
+	}
+	
+	
+	.row.reset {
+		margin:0;
+		
+		.col-md-6 {
+			padding: 0;
+			margin:0;
+		}
+		
+	}
+	
+	.fondo-medicos-1  {
+			background-image: url(../images/foto-medicos-1.jpg);
+			min-height:400px;
+			background-size:cover;
+	}	
+	
+	.fondo-medicos-2  {
+			background-image: url(../images/foto-medicos-2.jpg);
+			min-height:400px;
+						background-size:cover;
+	}
+	
+	
+	.mosaico {
+		
+		display: flex;
+		align-items: center;
+		
+ 		.column-item {
+			flex-direction: row;
+			width:50%;
+ 			
+			.espaciado {
+				padding:0 20%
+ 				}
+		}
+	}
+	
+	.mosaico.alterno {
+	
+		background-color: #fff;
+	}
+	
+	.destacado-para-medicos {
+		padding: 80px 0;
+		 
+		
+		.intro {
+			margin-bottom:40px
+		}
+		
+		ul {
+			 			
+			li {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	
+	.foto-doble  {
+			background-image: url(../images/foto-doble.jpg);
+			min-height:300px;
+			background-size:cover;
+			background-position:center center;
+	}
+	
+}
+
+
+#promo-apps {
+	background-color: $fondoPacientes;
+	padding-top: 100px;
+	
+	
+	h1 {
+		color: $colorPrimario;
+		padding-right: 100px;
+	}
+	
+	.intro {
+		padding: 30px 0;
+		margin-right: 100px;
+		line-height:1.6em;
+		
+	}
+	
+	.boton-de-tienda {
+		margin-right: 20px
+	}
+	
+}
+
+
+#formulario-contacto {
+	
+	background: #3064A0 url(../images/fondo-seccion-mas-info.jpg) no-repeat center;
+	background-size:cover;
+	padding:100px 0;
+	
+	
+	h1 {
+		color: $colorPrimario;	
+		text-transform: uppercase;
+		margin-bottom:30px;
+	}
+	
+	.intro {
+		font-size: 24px;
+		margin-bottom:30px;
+	}
+	
+	.contenedor-de-formulario {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		background-color: #fff;
+	}
+	
+	.btn-primary {
+		margin-top: 15px;
+		background-color: #63B208;
+	}
+	
+}
+
+
+#page-footer {
+	
+	padding: 30px 0 15px;
+	background-color: #fff;
+		
+	a {
+		color: $colorPrimario;
+	}
+	
+	.accesos {
+		text-align:right;
+	}
+
+}
+
+
+/* Small screens */
+@media all and (max-width: 720px) {
+	
+	
+	
+	.navbar-collapse  {
+		background-color: #fff;
+		border: none; 
+		margin: 50px 20px 10px;
+	
+	}
+	
+	.navbar-custom {
+		min-height: 130px;
+	}
+	
+	#info-medicos {
+  .mosaico {
+		/* On small screens, we are no longer using row direction but column */
+		flex-direction: column;
+		width:100%;
+		
+		
+		.column-item {
+			width:100%;
+			
+			.espaciado { 
+				padding:10%;
+			}
+			
+			
+		}
+		
+		.fondo-medicos-2 {
+				display:none;
+			}
+		
+		
+	}
+	
+	.foto-doble {
+		min-height: 100px;
+	}
+  }
+}

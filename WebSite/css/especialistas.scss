@@ -1,0 +1,204 @@
+/* CSS Document */
+
+
+
+.page {
+	
+		
+	padding-top: 140px;
+	
+	.bodycopy {
+	
+		min-height: 320px;
+		margin-bottom:80px	;
+		font-size: 18px;
+		
+	}
+	
+}
+
+
+.breadcrumb {
+	background-color: #fff;
+}
+
+
+
+header.especialistas {
+	background-image: url(../images/fondo-hero-especialistas.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
+	
+	min-height: 700px;
+	margin-bottom:40px;
+	
+	
+	.intro {
+		padding-top: 530px;
+		
+		
+		a {
+			text-decoration: none;
+			color: #fff;
+			
+			p {
+				opacity: 0.9
+			}
+		}
+		 
+		h2 {
+			font-weight: 400;
+			margin:0;
+		} 
+	}
+	
+	 
+	.intro-especialistas {
+		background-color: $colorSecundario;
+		padding:  30px;
+		text-align:left;
+		margin:0 25px;
+		
+		 
+	}
+	
+	.intro-medicos {
+		background-color: $colorSecundario;
+		padding: 30px;
+		text-align:left;
+		margin:0 25px;
+		
+		 
+	}
+	
+	
+}
+
+
+.filtros {
+
+	background-color: #fff;
+	border: 1px solid #ECF3FB;
+	padding: 20px;
+	line-height:150%;
+	font-size:16px;
+	margin-bottom:20px;
+	
+	 
+	.form-group {
+	
+		min-width: 20%;
+		
+		label {
+	
+			font-weight:bold;
+		}
+		
+		select {
+			width: 100%;	
+		}
+	}
+	
+	.btn-primary {
+	
+		margin-left: 20px;	
+	}
+
+}
+
+
+
+.listado {
+	
+
+	.medico {
+		background-color: #fff;
+		border: 1px solid #ECF3FB;
+		padding: 20px;
+		line-height:150%;
+		font-size:16px;
+		margin-bottom:20px;
+
+		
+		h3 {
+			margin: 0;
+			padding:0;	
+			color: $colorSecundario;  
+		}
+		
+		.area {
+			color: $colorPrimario;
+		}
+		
+		.telefonos {
+			
+			padding-top: 10px;
+			
+			.icono {
+				margin-right: 5px;
+			}
+			
+			font-weight:bold;
+			
+			.tipo {
+				font-style:italic;
+				font-weight:normal;
+			}
+			
+		}
+	}
+	
+} 
+
+
+
+.tarjeta-info-medico {
+
+	background-color: #fff;
+	padding: 40px;
+	
+	label {
+		font-size: 14px;
+	}
+	
+	
+	h2 {
+		color: $colorPrimario;	
+		text-transform: uppercase;
+		font-size: 24px;
+	}
+	
+	.foto-medico {
+		margin-bottom: 30px;
+		
+	}
+
+
+	.acciones-de-contacto {
+	
+		a.btn {
+			margin-bottom: 15px;
+			font-weight: 600;
+			font-size:14px;
+		}
+		
+		a span {
+			font-size: 12px; 
+			font-weight: normal;
+			display:block;
+		}
+		
+		a.btn-llamar {
+			line-height: 90%;
+		}
+	
+	}
+
+}

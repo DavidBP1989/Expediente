@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Studies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Estudios paracl&iacute;nicos</h1>
+    <p class="description">
+        Informaci&oacute;n de estudios de laboratorio, gabinete y otros.
+    </p>
+</div>
+<div class="section-body">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Estudios de laboratorio</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width:100px">Fecha de solicitud</th>
+                                    <th>Nombre del estudio</th>
+                                    <th>Reporte</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var i in (List<dynamic>)ViewBag.listLab)
+                                {
+                                    <tr>
+                                        <td>@i.date</td>
+                                        <td>@i.name</td>
+                                        <td>@Html.Raw(i.report)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Estudios de gabinete</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width:100px">Fecha de solicitud</th>
+                                    <th>Nombre del estudio</th>
+                                    <th>Reporte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var i in (List<dynamic>)ViewBag.listGab)
+                                {
+                                    <tr>
+                                        <td>@i.date</td>
+                                        <td>@i.name</td>
+                                        <td>@Html.Raw(i.report)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

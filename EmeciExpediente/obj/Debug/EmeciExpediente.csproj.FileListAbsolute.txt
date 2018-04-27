@@ -1,0 +1,201 @@
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\csc.exe
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.CSharp.Core.targets
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\System.Collections.Immutable.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\System.Reflection.Metadata.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\vbc.exe
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\VBCSCompiler.exe
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\roslyn\VBCSCompiler.exe.config
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciExpediente.dll.config
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciExpediente.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciExpediente.pdb
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Antlr3.Runtime.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciCommon.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciDataAccess.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciFacade.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EmeciRules.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EntityFramework.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EntityFramework.SqlServer.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.Core.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.Owin.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Cookies.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Facebook.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Google.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.OAuth.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Twitter.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Web.Infrastructure.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Newtonsoft.Json.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Owin.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Net.Http.Formatting.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Helpers.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Http.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Http.WebHost.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Mvc.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Optimization.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Razor.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.Deployment.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.Razor.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\WebGrease.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Helpers.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Mvc.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Optimization.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Razor.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.Deployment.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.WebPages.Razor.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Antlr3.Runtime.pdb
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Newtonsoft.Json.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Net.Http.Formatting.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Http.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\System.Web.Http.WebHost.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EntityFramework.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\EntityFramework.SqlServer.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.Core.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.Owin.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Facebook.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Cookies.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.OAuth.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Google.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.Twitter.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Helpers.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Mvc.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Optimization.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Razor.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.WebPages.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.WebPages.Deployment.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.WebPages.Razor.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Net.Http.Formatting.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Http.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\System.Web.Http.WebHost.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\EntityFramework.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\EntityFramework.SqlServer.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Security.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Security.Google.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\obj\Debug\EmeciExpediente.dll
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\obj\Debug\EmeciExpediente.pdb
+\\Mac\Home\Desktop\DAVID\Emeci\Emeci Expediente V2\EmeciExpediente\obj\Debug\EmeciExpediente.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\csc.exe
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.CSharp.Core.targets
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\System.Collections.Immutable.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\System.Reflection.Metadata.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\vbc.exe
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\VBCSCompiler.exe
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\roslyn\VBCSCompiler.exe.config
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciExpediente.dll.config
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciExpediente.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciExpediente.pdb
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Antlr3.Runtime.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciCommon.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciDataAccess.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciFacade.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EmeciRules.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EntityFramework.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EntityFramework.SqlServer.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.Core.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.Owin.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Cookies.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Facebook.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Google.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.OAuth.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Twitter.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Web.Infrastructure.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Newtonsoft.Json.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Owin.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Net.Http.Formatting.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Helpers.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Http.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Http.WebHost.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Mvc.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Optimization.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Razor.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.Deployment.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.Razor.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\WebGrease.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Helpers.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Mvc.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Optimization.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Razor.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.Deployment.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.WebPages.Razor.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Antlr3.Runtime.pdb
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Newtonsoft.Json.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Net.Http.Formatting.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Http.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\System.Web.Http.WebHost.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EntityFramework.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\EntityFramework.SqlServer.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.Core.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.Owin.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Facebook.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Cookies.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.OAuth.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Google.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.Twitter.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Helpers.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Mvc.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Optimization.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Razor.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.WebPages.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.WebPages.Deployment.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.WebPages.Razor.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Net.Http.Formatting.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Http.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\System.Web.Http.WebHost.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\EntityFramework.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\EntityFramework.SqlServer.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.Google.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\obj\Debug\EmeciExpediente.dll
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\obj\Debug\EmeciExpediente.pdb

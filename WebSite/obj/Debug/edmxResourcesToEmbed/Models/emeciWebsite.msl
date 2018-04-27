@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="emeciModelStoreContainer" CdmEntityContainer="emeciEntities">
+    <EntitySetMapping Name="viewMedicos">
+      <EntityTypeMapping TypeName="emeciModel.viewMedicos">
+        <MappingFragment StoreEntitySet="viewMedicos">
+          <ScalarProperty Name="idciudad" ColumnName="idciudad" />
+          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="Idmedico" ColumnName="Idmedico" />
+          <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+          <ScalarProperty Name="CedulaEspecialidad" ColumnName="CedulaEspecialidad" />
+          <ScalarProperty Name="CertCMCP" ColumnName="CertCMCP" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="PediatraPlus" ColumnName="PediatraPlus" />
+          <ScalarProperty Name="NoRegSSA" ColumnName="NoRegSSA" />
+          <ScalarProperty Name="DomicilioConsultorio" ColumnName="DomicilioConsultorio" />
+          <ScalarProperty Name="TelefonoConsultorio" ColumnName="TelefonoConsultorio" />
+          <ScalarProperty Name="TelefonoFax" ColumnName="TelefonoFax" />
+          <ScalarProperty Name="codigopostal" ColumnName="codigopostal" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="TelefonoCel" ColumnName="TelefonoCel" />
+          <ScalarProperty Name="Emails" ColumnName="Emails" />
+          <ScalarProperty Name="FechaRenovacion" ColumnName="FechaRenovacion" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudades">
+      <EntityTypeMapping TypeName="emeciModel.Ciudades">
+        <MappingFragment StoreEntitySet="Ciudades">
+          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idciudad" ColumnName="idciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="emeciModel.Estados">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewMedico">
+      <EntityTypeMapping TypeName="emeciModel.viewMedico">
+        <MappingFragment StoreEntitySet="viewMedico">
+          <ScalarProperty Name="TipoPediatra" ColumnName="TipoPediatra" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="TelefonoCel" ColumnName="TelefonoCel" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="Emails" ColumnName="Emails" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="TelefonoConsultorio" ColumnName="TelefonoConsultorio" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="CertCMCP" ColumnName="CertCMCP" />
+          <ScalarProperty Name="UniversidadEspecialidad" ColumnName="UniversidadEspecialidad" />
+          <ScalarProperty Name="PediatraPlus" ColumnName="PediatraPlus" />
+          <ScalarProperty Name="NoRegSSA" ColumnName="NoRegSSA" />
+          <ScalarProperty Name="HospitalResidenciaPediatra" ColumnName="HospitalResidenciaPediatra" />
+          <ScalarProperty Name="DomicilioConsultorio" ColumnName="DomicilioConsultorio" />
+          <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+          <ScalarProperty Name="CedulaEspecialidad" ColumnName="CedulaEspecialidad" />
+          <ScalarProperty Name="AgrupacionNacional" ColumnName="AgrupacionNacional" />
+          <ScalarProperty Name="AgrupacionLocal" ColumnName="AgrupacionLocal" />
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

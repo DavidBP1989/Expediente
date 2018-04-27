@@ -1,0 +1,677 @@
+﻿
+@{
+    ViewBag.Title = "Pathological";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/Scripts/Antecedent/Pathological.js");
+}
+<style>
+    .nav li a { font-size: 13px !important; }
+</style>
+
+@model ModelPathological
+@using (Html.BeginForm("Pathological", "Antecedent", FormMethod.Post, new { @id = "formPath"}))
+{
+    <div class="section-header">
+        <h1>Antecedentes</h1>
+        <p class="description">
+            Esta informaci&oacute;n puede ser actualizada cada vez que sea necesario
+            para as&iacute; mantener al d&iacute;a el expediente
+        </p>
+        <div class="section-controls">
+            <a class="btn btn-primary" onclick="Post();">Guardar Cambios</a>
+        </div>
+    </div>
+    <div class="sub-menu">
+        <ul class="nav nav-pills">
+            <li class="nav-item active">
+                <a class="nav-link">Antecedentes Patalogicos</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/Antecedent/Heredofamiliares" class="nav-link">Antecedentes Heredofamiliares</a>
+            </li>
+            
+            @if ((bool)ViewBag.showObstetrica_Ginecologia)
+            {
+                <li class="nav-item">
+                    <a href="~/Antecedent/Ginecologicos" class="nav-link">Antecedentes Ginecol&oacute;gicos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/Antecedent/Obstetricos" class="nav-link">Antecedentes Obst&eacute;tricos</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Enfermedades</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.antecendet, "Antecedentes de patología peri-neonatal")
+                            @Html.TextBoxFor(x => x.antecendet, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Enfermedades infectocontagiosas de la infancia y edad (en años) al adquirirla</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.rubeola, Model.rubeola)
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    Rub&eacute;ola
+                                </label>
+                            </div>
+                            <div class="form-group" id="cnt_rubeola">
+                                <label>Edad al adquirirla:</label>
+                                @Html.DropDownListFor(x => x.ageRubeola, 
+                                ViewBag.ages as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.sarampion, Model.sarampion)
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    Sarampi&oacute;n
+                                </label>
+                            </div>
+                            <div class="form-group" id="cnt_sarampion">
+                                <label>Edad al adquirirla:</label>
+                                @Html.DropDownListFor(x => x.ageSarampion,
+                                ViewBag.ages as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.tosFerina, Model.tosFerina)
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    Tos ferina
+                                </label>
+                            </div>
+                            <div class="form-group" id="cnt_tosFerina">
+                                <label>Edad al adquirirla:</label>
+                                @Html.DropDownListFor(x => x.ageTosFerina,
+                                ViewBag.ages as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.roseola, Model.roseola)
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    Roseola
+                                </label>
+                            </div>
+                            <div class="form-group" id="cnt_roseola">
+                                <label>Edad al adquirirla:</label>
+                                @Html.DropDownListFor(x => x.ageRoseola,
+                                ViewBag.ages as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.varicela, Model.varicela)
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    Varicela
+                                </label>
+                            </div>
+                            <div class="form-group" id="cnt_varicela">
+                                <label>Edad al adquirirla:</label>
+                                @Html.DropDownListFor(x => x.ageVaricela,
+                                ViewBag.ages as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.otherDisease, "Otras enfermedades")
+                                <p>
+                                    Mencione nombre y edad en años al adquirirla
+                                </p>
+                                @Html.TextBoxFor(x => x.otherDisease, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Enfermedades contagiosas</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.faringitis, Model.faringitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Faringitis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.amigdalitis, Model.amigdalitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Amigdalitis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.parasitosis, Model.parasitosis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Parasitosis intestinal
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.hepatitis, Model.hepatitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Hepatitis
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.infeccion, Model.infeccion)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Infecci&oacute;n de v&iacute;as urinarias
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.gastro, Model.gastro)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Gastroenteritis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.otitis, Model.otitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Otitis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.conjutivitis, Model.conjutivitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Conjutivitis
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.micosis, Model.micosis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Micosis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.bronquitis, Model.bronquitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Bronquitis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.bronco, Model.bronco)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Bronco Neumonia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.estomatitis, Model.estomatitis)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Estomatitis Herp&eacute;tica
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Otras Enfermedades</label>
+                                <p>
+                                    Mencione Nombre y Evolución
+                                </p>
+                                @Html.TextAreaFor(x => x.otherContagious, new { @class = "form-control", @cols = "30", @rows = "5"})
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cirug&iacute;as</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Fecha de Realizaci&oacute;n</th>
+                                        <th>Nombre</th>
+                                        <th>Observaciones</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowSurgeries">
+                                    @foreach(var s in ViewBag.surgeries)
+                                    {
+                                        <tr>
+                                            <td>@s.Fecha</td>
+                                            <td>@s.Nombre</td>
+                                            <td>@s.Observaciones</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@s.idpatologia, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalCirugia" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade" id="modalCirugia" tabindex="-1" role="dialog" aria-labelledby="modalCirugia" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registro de Cirug&iacute;a</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre de la Cirug&iacute;a</label>
+                                                <input type="text" class="form-control" id="nameCirugia" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <input type="text" readonly="readonly" class="form-control calendar" id="dateCirugia" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Observaciones</label>
+                                                <input type="text" class="form-control" id="obsCirugia" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="SaveSurgery_Or_Trauma(1)" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Traumatismos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Fecha de Realizaci&oacute;n</th>
+                                        <th>Nombre</th>
+                                        <th>Observaciones</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowTrauma">
+                                    @foreach (var s in ViewBag.trauma)
+                                    {
+                                        <tr>
+                                            <td>@s.Fecha</td>
+                                            <td>@s.Nombre</td>
+                                            <td>@s.Observaciones</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@s.idpatologia, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalTrauma" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade" id="modalTrauma" tabindex="-1" role="dialog" aria-labelledby="modalTrauma" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registro de Traumatismo</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" id="nameTrauma" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Fecha del Incidente</label>
+                                                <input type="text" readonly="readonly" class="form-control calendar" id="dateTrauma" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Observaciones</label>
+                                                <input type="text" class="form-control" id="obsTrauma" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="SaveSurgery_Or_Trauma(2)" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Enfermedad Al&eacute;rgica o At&oacute;pica</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Nombre</th>
+                                        <th style="width:100px">Alergeno</th>
+                                        <th style="width:60px">Edad</th>
+                                        <th>Manejo</th>
+                                        <th>Evoluci&oacute;n</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowDisease">
+                                    @foreach(var d in ViewBag.diseases)
+                                    {
+                                        <tr>
+                                            <td>@d.Nombre</td>
+                                            <td>@d.Alergeno</td>
+                                            <td>@d.EdadAdquirida</td>
+                                            <td>@d.Manejo</td>
+                                            <td>@d.Evoluciones</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@d.idpatologia, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalDiseases" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade" id="modalDiseases" tabindex="-1" role="dialog" aria-labelledby="modalDiseases" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registro de Enfermedades</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" id="nameDisease">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Alergeno</label>
+                                                <input type="text" class="form-control" id="alergenoDisease">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Edad</label>
+                                                <input type="text" class="form-control" id="ageDisease">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Manejo ( medicación y medidas de control ):</label>
+                                                <textarea name="" id="manejoDisease" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Evolución</label>
+                                                <textarea name="" id="evoDisease" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="SaveDiseases_Or_Others(5)" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Otras enfermedades</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Nombre</th>
+                                        <th style="width:60px">Edad</th>
+                                        <th>Manejo</th>
+                                        <th>Evoluci&oacute;n</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowOthers">
+                                    @foreach (var d in ViewBag.otherDiseases)
+                                    {
+                                        <tr>
+                                            <td>@d.Nombre</td>
+                                            <td>@d.EdadAdquirida</td>
+                                            <td>@d.Manejo</td>
+                                            <td>@d.Evoluciones</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@d.idpatologia, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalOtherDiseases" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade" id="modalOtherDiseases" tabindex="-1" role="dialog" aria-labelledby="modalOtherDiseases" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registro de otras enfermedades</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" id="nameOther">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Edad</label>
+                                                <input type="text" class="form-control" id="ageOther">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Manejo ( medicación y medidas de control ):</label>
+                                                <textarea name="" id="manejoOther" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="fb1">Evolución</label>
+                                                <textarea name="" id="evoOther" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="SaveDiseases_Or_Others(6)" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-toggle="modal" data-target="#dpathologia" id="showModal"></a>
+    <div class="modal fade" id="dpathologia" tabindex="-1" role="dialog" aria-labelledby="dpathologia" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Antecedentes Patalogicos</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+
+    $(function () {
+        var urlDelete = '@Url.Action("Remove", "Antecedent")';
+        var urlSaveSurgery = '@Url.Action("AddSurgery_Or_Trauma", "Antecedent")';
+        var urlOthers = '@Url.Action("AddDiseases_Or_Others", "Antecedent")';
+        Init(urlDelete, urlSaveSurgery, urlOthers);
+
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack)
+            $('#showModal').trigger('click', function(){});
+    })
+
+</script>

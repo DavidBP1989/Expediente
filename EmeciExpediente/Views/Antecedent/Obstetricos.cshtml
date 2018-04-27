@@ -1,0 +1,488 @@
+﻿
+@{
+    ViewBag.Title = "Obstetricos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/Scripts/Antecedent/Obstetrico.js");
+}
+<style>
+    .nav li a {font-size: 13px !important;}
+</style>
+
+@model ModelObstetrico
+@using (Html.BeginForm("Obstetricos", "Antecedent", FormMethod.Post, new { @id = "formObs" }))
+{
+    <div class="section-header">
+        <h1>Antecedentes</h1>
+        <p class="description">
+            Esta informaci&oacute;n puede ser actualizada cada vez que sea necesario
+            para as&iacute; mantener al d&iacute;a el expediente.
+        </p>
+        <div class="section-controls">
+            <a onclick="Post();" class="btn btn-primary">Guardar Cambios</a>
+        </div>
+    </div>
+    <div class="sub-menu">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="~/Antecedent/Pathological" class="nav-link">Antecedentes Patalogicos</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/Antecedent/Heredofamiliares" class="nav-link">Antecedentes Heredofamiliares</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/Antecedent/Ginecologicos" class="nav-link">Antecedentes Ginecol&oacute;gicos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Antecedentes Obst&eacute;tricos</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Antecedentes Obst&eacute;tricos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.fechaUltimoParto, "Fecha de último parto")
+                            @Html.TextBoxFor(x => x.fechaUltimoParto, null, new { @class = "form-control calendar", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.ultimoDiaRegla, "Último día de regla")
+                            @Html.TextBoxFor(x => x.ultimoDiaRegla, null, new { @class = "form-control calendar", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.gestas, "Gestas (Embarazos)")
+                            @Html.DropDownListFor(x => x.gestas,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.partosAnormales, "Partos anormales")
+                            @Html.DropDownListFor(x => x.partosAnormales,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.partosNormales, "Partos normales")
+                            @Html.DropDownListFor(x => x.partosNormales,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.cesareas, "Cesáreas")
+                            @Html.DropDownListFor(x => x.cesareas,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.forceps, "Forceps")
+                            @Html.DropDownListFor(x => x.forceps,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.rn, "R.N. Peso alto (más de 4Kg)")
+                            @Html.DropDownListFor(x => x.rn,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.prematuro, "Prematuros (menos de 37 sem)")
+                            @Html.DropDownListFor(x => x.prematuro,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.aborto, "Abortos")
+                            @Html.DropDownListFor(x => x.aborto,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.obito, "Obitos")
+                            @Html.DropDownListFor(x => x.obito,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.malFormado, "Malformados")
+                            @Html.DropDownListFor(x => x.malFormado,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.rnEnfermos, "R.N. Enfermos")
+                            @Html.DropDownListFor(x => x.rnEnfermos,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.embarazoMult, "Embarazo múltiple")
+                            @Html.DropDownListFor(x => x.embarazoMult,
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "0", Value = "0" },
+                                    new SelectListItem { Text = "1", Value = "1" },
+                                    new SelectListItem { Text = "2", Value = "2" },
+                                    new SelectListItem { Text = "3", Value = "3" },
+                                    new SelectListItem { Text = "4", Value = "4" },
+                                    new SelectListItem { Text = "5", Value = "5" },
+                                    new SelectListItem { Text = "6", Value = "6" },
+                                    new SelectListItem { Text = "7", Value = "7" },
+                                    new SelectListItem { Text = "8", Value = "8" },
+                                    new SelectListItem { Text = "9", Value = "9" },
+                                    new SelectListItem { Text = "10", Value = "10" },
+                                    new SelectListItem { Text = "11", Value = "11" },
+                                    new SelectListItem { Text = "12", Value = "12" },
+                                    new SelectListItem { Text = "13", Value = "13" },
+                                    new SelectListItem { Text = "14", Value = "14" },
+                                    new SelectListItem { Text = "15", Value = "15" },
+                                    new SelectListItem { Text = "16", Value = "16" },
+                                    new SelectListItem { Text = "17", Value = "17" },
+                                    new SelectListItem { Text = "18", Value = "18" },
+                                    new SelectListItem { Text = "19", Value = "19" },
+                                    new SelectListItem { Text = "20", Value = "20" }
+                                }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicacionesEmbarazo, "Complicaciones durante algún embarazo (señale no. de embarazo y complicación)")
+                            @Html.TextAreaFor(x => x.complicacionesEmbarazo, new { @class = "form-control", @cols = "30", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicacionesParto, "Complicaciones durante un parto (no. de parto y complicación)")
+                            @Html.TextAreaFor(x => x.complicacionesParto, new { @class = "form-control", @cols = "30", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicacionesRecien, "Complicaciones de un recien nacido (señale no. de recien nacido y complicación)")
+                            @Html.TextAreaFor(x => x.complicacionesRecien, new { @class = "form-control", @cols = "30", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.complicacionesLact, "Complicaciones en la lactancia (explique)")
+                            @Html.TextAreaFor(x => x.complicacionesLact, new { @class = "form-control", @cols = "30", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="#" data-toggle="modal" data-target="#dpathologia" id="showModal"></a>
+    <div class="modal fade" id="dpathologia" tabindex="-1" role="dialog" aria-labelledby="dpathologia" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Antecedentes Obstetricos</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        Init();
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack)
+            $('#showModal').trigger('click', function () { });
+    })
+</script>

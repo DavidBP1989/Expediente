@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmeciExpediente", "EmeciExpediente\EmeciExpediente.csproj", "{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmeciExpediente.Tests", "EmeciExpediente.Tests\EmeciExpediente.Tests.csproj", "{E4B69202-AE0D-46DC-B968-9B698ADC208E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{D52AF5F0-7CC8-4D13-B352-BD3519746CDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B69202-AE0D-46DC-B968-9B698ADC208E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B69202-AE0D-46DC-B968-9B698ADC208E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B69202-AE0D-46DC-B968-9B698ADC208E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B69202-AE0D-46DC-B968-9B698ADC208E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52AF5F0-7CC8-4D13-B352-BD3519746CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52AF5F0-7CC8-4D13-B352-BD3519746CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52AF5F0-7CC8-4D13-B352-BD3519746CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52AF5F0-7CC8-4D13-B352-BD3519746CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

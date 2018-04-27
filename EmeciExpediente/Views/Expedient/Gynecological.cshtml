@@ -1,0 +1,309 @@
+﻿
+@{
+    ViewBag.Title = "Ginecologica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Historial de consultas</h1>
+    <p class="description">
+        Seleccione la fecha correspondiente a la consulta que desea ver.
+    </p>
+</div>
+<div class="sub-menu">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="~/Expedient/Consultation" class="nav-link">General</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link">Ginecolog&iacute;ca</a>
+        </li>
+        <li class="nav-item">
+            <a href="~/Expedient/Obstetrica" class="nav-link">Obst&eacute;trica</a>
+        </li>
+    </ul>
+</div>
+
+<div class="section-body">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Calendario de consultas</h3>
+        </div>
+        @using (Html.BeginForm("Gynecological", "Expedient", FormMethod.Post, new { @id = "QueryForm" }))
+        {
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.Label("date", "Seleccione la fecha de la consulta")
+                        @Html.DropDownList("date", ViewBag.consultation as IEnumerable<SelectListItem>, new { @class = "form-control", @onchange = "Send();" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Detalles de la consulta ginecol&oacute;gica</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("kilo", "Peso (Kilos)")
+                        @Html.TextBox("kilo", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("meter", "Talla (Metros)")
+                        @Html.TextBox("meter", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("mass", "Indice masa corporal")
+                        @Html.TextBox("mass", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3 col-sm-12 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("menarca", "Edad de su menarca")
+                        @Html.TextBox("menarca", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("temperature", "Temperatura (ºC)")
+                        @Html.TextBox("temperature", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("sistolica", "Pres. Arterial Sistólica")
+                        @Html.TextBox("sistolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("diastolica", "Pres. Arterial Diastólica")
+                        @Html.TextBox("diastolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        @Html.Label("menstruation", "Fecha última menstruación")
+                        @Html.TextBox("menstruation", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("gesta", "Gestas")
+                                @Html.TextBox("gesta", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("paragesta", "Paragestas")
+                                @Html.TextBox("paragesta", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("cesarea", "Cesáreas")
+                                @Html.TextBox("cesarea", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("abortion", "Abortos")
+                                @Html.TextBox("abortion", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("nacido", "Recien nacido", new { @style = "white-space:pre;" })
+                                @Html.TextBox("nacido", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                            <div class="form-group">
+                                @Html.Label("mortinato", "Mortinatos")
+                                @Html.TextBox("mortinato", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        @Html.Label("sexualAge", "Edad de inicio de vida sexual activa")
+                        @Html.TextBox("sexualAge", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        @Html.Label("menacma", "Menacmia")
+                        @Html.TextBox("menacma", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-5"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-6 col-md-3 col-lg-3">
+                    <nav>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                @Html.CheckBox("oligomenorrea", (bool)ViewBag.oligomenorrea, new { @disabled = "disabled" })
+                                @Html.Label("oligomenorrea", "Oligomenorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("proimenorrea", (bool)ViewBag.proimenorrea, new { @disabled = "disabled" })
+                                @Html.Label("proimenorrea", "Proimenorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("hipermenorrea", (bool)ViewBag.hipermenorrea, new { @disabled = "disabled" })
+                                @Html.Label("hipermenorrea", "Hipermenorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("dismenorrea", (bool)ViewBag.dismenorrea, new { @disabled = "disabled" })
+                                @Html.Label("dismenorrea", "Dismenorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("dispareunia", (bool)ViewBag.dispareunia, new { @disabled = "disabled" })
+                                @Html.Label("dispareunia", "Dispareunia")
+                            </li>
+                            <li>
+                                @Html.CheckBox("leucorrea", (bool)ViewBag.leucorrea, new { @disabled = "disabled" })
+                                @Html.Label("leucorrea", "Leucorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("lactorrea", (bool)ViewBag.lactorrea, new { @disabled = "disabled" })
+                                @Html.Label("lactorrea", "Lactorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("amenorrea", (bool)ViewBag.amenorrea, new { @disabled = "disabled" })
+                                @Html.Label("amenorrea", "Amenorrea")
+                            </li>
+                            <li>
+                                @Html.CheckBox("metrorragia", (bool)ViewBag.metrorragia, new { @disabled = "disabled" })
+                                @Html.Label("metrorragia", "Metrorragia")
+                            </li>
+                            <li>
+                                @Html.CheckBox("others", (bool)ViewBag.others, new { @disabled = "disabled" })
+                                @Html.Label("others", "Otros")
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-6 col-md-9 col-lg-9">
+                    <div class="form-group">
+                        @Html.Label("explain", "Explique")
+                        @Html.TextArea("explain", null, new { @class = "form-control", @rows = "12", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            
+            <br />
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("hasPartner", "¿Tiene pareja?") &nbsp;
+                        @Html.TextBox("hasPartner", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-heading" style="display:@(ViewBag.hasPartner == "Si" ? "block" : "none")">
+            <h3 class="panel-title">Datos de pareja</h3>
+        </div>
+        <div class="panel-body" style="display:@(ViewBag.hasPartner == "Si" ? "block" : "none")">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+                            <div class="form-group">
+                                @Html.Label("partnerName", "Nombre y apellidos de la pareja")
+                                @Html.TextBox("partnerName", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <div class="form-group">
+                                @Html.Label("partnerSex", "Sexo")
+                                @Html.TextBox("partnerSex", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <div class="form-group">
+                                @Html.Label("partnerCivilStatus", "Estado civil")
+                                @Html.TextBox("partnerCivilStatus", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+                            <div class="form-group">
+                                @Html.Label("partnerRh", "Grupo y RH")
+                                @Html.TextBox("partnerRh", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group">
+                                @Html.Label("partnerDate", "Fecha de nacimiento")
+                                @Html.TextBox("partnerDate", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="form-group">
+                                @Html.Label("partnerAge", "Edad")
+                                @Html.TextBox("partnerAge", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="form-group">
+                                @Html.Label("partnerOcupation", "Ocupación")
+                                @Html.TextBox("partnerOcupation", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-2 col-lg-3">
+                            <div class="form-group">
+                                @Html.Label("partnerPhone", "Teléfono(s)")
+                                @Html.TextBox("partnerPhone", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        @Html.Label("reason", "Motivo de la consulta")
+                        @Html.TextArea("reason", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Send()
+    {
+        $('#QueryForm').submit();
+    }
+</script>

@@ -1,0 +1,74 @@
+﻿@model EmeciExpediente.Models.ImagesAppModel
+@{
+    ViewBag.Title = "Generales";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    string Category = Enum.GetName(typeof(EmeciExpediente.Models.ImagesAppModel.TypeGallery), Model.Category);
+}
+
+@Html.Partial("~/Views/Images/MenuImages.cshtml", Model)
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Agregar imagen al expediente</h3>
+    </div>
+    @using (Html.BeginForm("Generales", "Images", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 col-sm-8">
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.File, new { @type = "file" })
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" onclick="return CheckImage()" class="btn btn-sm btn-primary">Guardar imagen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.ImageName, null, new { @class = "form-control", @placeholder = "Nombre de la imagen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xs-8 text-left">
+                        <label id="Error" style="color:red; margin:10px 0 0 0;">@Model.Error</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="panel">
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (dynamic Image in Model.Images)
+                {
+                    <div class="col-lg-3 col-xs-4 col-sm-4">
+                        <a title="@Image.Name|@Image.ShowName|@Category" target="@(Image._Blank ? "_blank" : "")" class="thumbnail fancybox" href="@Url.Content(Image.Href)">
+                            <img class="img-responsive" src="@Url.Content(Image.Thumbnail)" />
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function CheckImage()
+    {
+        var IsSuccess = true;
+        validateForm.input = $('#ImageName')[0];
+        if (validateForm.IsOnlyEmpty())
+        {
+            $('#Error').hide();
+        } else IsSuccess = false;
+
+        return IsSuccess;
+    }
+</script>
+
+

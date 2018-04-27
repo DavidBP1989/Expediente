@@ -1,0 +1,880 @@
+﻿
+@{
+    ViewBag.Title = "HeredoFamiliares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/Scripts/Antecedent/Heredofamiliares.js");
+}
+<style>
+    .nav li a {font-size: 13px !important;}
+</style>
+
+@model ModelHeredoF
+@using (Html.BeginForm("HeredoFamiliares", "Antecedent", FormMethod.Post, new { @id = "formHeredo" }))
+{
+    <div class="section-header">
+        <h1>Antecedentes</h1>
+        <p class="description">
+            Esta informaci&oacute;n puede ser actualizada cada vez que sea necesario
+            para as&iacute; mantener al d&iacute;a el expediente.
+        </p>
+        <div class="section-controls">
+            <a onclick="Post();" class="btn btn-primary">Guardar Cambios</a>
+        </div>
+    </div>
+    <div class="sub-menu">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="~/Antecedent/Pathological" class="nav-link">Antecedentes Patalogicos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Antecedentes Heredofamiliares</a>
+            </li>
+            
+            @if ((bool)ViewBag.showObstetrica_Ginecologia)
+            {
+                <li class="nav-item">
+                    <a href="~/Antecedent/Ginecologicos" class="nav-link">Antecedentes Ginecol&oacute;gicos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="~/Antecedent/Obstetricos" class="nav-link">Antecedentes Obst&eacute;tricos</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Antecedentes del padre</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_name, "Nombre(s)")
+                            @Html.TextBoxFor(x => x.f_name, null, new { @class = "form-control letter" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_1LastName, "Apellido paterno")
+                            @Html.TextBoxFor(x => x.f_1LastName, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_2LastName, "Apellido materno")
+                            @Html.TextBoxFor(x => x.f_2LastName, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_birthdate, "Fecha de nacimiento")
+                            @Html.TextBoxFor(x => x.f_birthdate, null, new { @class = "form-control calendar" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_civilStatus, "Estado civil")
+                            @Html.DropDownListFor(x => x.f_civilStatus,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Casado", Value = "0" },
+                                new SelectListItem { Text = "Separado", Value = "1" },
+                                new SelectListItem { Text = "Soltero", Value = "2" },
+                                new SelectListItem { Text = "Union libre", Value = "3" },
+                                new SelectListItem { Text = "Viudo", Value = "4" },
+                                new SelectListItem { Text = "Divorciado", Value = "5" }
+                            }, new { @class = "form-control"})
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_education, "Escolaridad maxima")
+                            @Html.DropDownListFor(x => x.f_education,
+                             new List<SelectListItem>
+                             {
+                                new SelectListItem { Text = "Primaria", Value = "0" },
+                                new SelectListItem { Text = "Secundaria", Value = "1" },
+                                new SelectListItem { Text = "Preparatoria", Value = "2" },
+                                new SelectListItem { Text = "Profesional -->", Value = "3" },
+                                new SelectListItem { Text = "Otra -->", Value = "4" },
+                                new SelectListItem { Text = "Sin escolaridad", Value = "5" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_Feducation" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_educationInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.f_educationInfo, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_health, "Estado actual de salud")
+                            @Html.DropDownListFor(x => x.f_health,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Sano", Value = "0" },
+                                new SelectListItem { Text = "Enfermo -->", Value = "1" },
+                                new SelectListItem { Text = "Finado", Value = "2" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_Fhealth" class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_healthInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.f_healthInfo, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_toxicomania, "Toxicomanias")
+                            @Html.DropDownListFor(x => x.f_toxicomania,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "No", Value = "0" },
+                                new SelectListItem { Text = "Si -->", Value = "1" },
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_FToxicomania" class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.f_toxicomaniaInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.f_toxicomaniaInfo, null, new { @class = "form-control" })
+                            <p>Ejemplo: Alcohol, Tabaco, Drogas, Etc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Antecedentes familiar de:</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_alergia, Model.f_alergia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Alergia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_asma, Model.f_asma)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Asma
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_epilepsia, Model.f_epilepsia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Epilepsia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_diabetes, Model.f_diabetes)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Diabetes mellitus
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_hiper, Model.f_hiper)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Hipertensi&oacute;n arterial
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_cancer, Model.f_cancer)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    C&aacute;ncer
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_malform, Model.f_malform)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Malformaciones cong&eacute;nitas
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.f_cardio, Model.f_cardio)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Cardiopat&iacute;as
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.f_others, "Otros antecedentes")
+                                @Html.TextBoxFor(x => x.f_others, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Antecedentes de la madre</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_name, "Nombre(s)")
+                            @Html.TextBoxFor(x => x.m_name, null, new { @class = "form-control letter" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_1LastName, "Apellido paterno")
+                            @Html.TextBoxFor(x => x.m_1LastName, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_2LastName, "Apellido materno")
+                            @Html.TextBoxFor(x => x.m_2LastName, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_birthdate, "Fecha de nacimiento")
+                            @Html.TextBoxFor(x => x.m_birthdate, null, new { @class = "form-control calendar" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_civilStatus, "Estado civil")
+                            @Html.DropDownListFor(x => x.m_civilStatus,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Casada", Value = "0" },
+                                new SelectListItem { Text = "Separada", Value = "1" },
+                                new SelectListItem { Text = "Soltera", Value = "2" },
+                                new SelectListItem { Text = "Union libre", Value = "3" },
+                                new SelectListItem { Text = "Viuda", Value = "4" },
+                                new SelectListItem { Text = "Divorciado", Value = "5" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_education, "Escolaridad maxima")
+                            @Html.DropDownListFor(x => x.m_education,
+                             new List<SelectListItem>
+                             {
+                                new SelectListItem { Text = "Primaria", Value = "0" },
+                                new SelectListItem { Text = "Secundaria", Value = "1" },
+                                new SelectListItem { Text = "Preparatoria", Value = "2" },
+                                new SelectListItem { Text = "Profesional -->", Value = "3" },
+                                new SelectListItem { Text = "Otra -->", Value = "4" },
+                                new SelectListItem { Text = "Sin escolaridad", Value = "5" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_Meducation" class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_educationInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.m_educationInfo, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_health, "Estado actual de salud")
+                            @Html.DropDownListFor(x => x.m_health,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Sano", Value = "0" },
+                                new SelectListItem { Text = "Enfermo -->", Value = "1" },
+                                new SelectListItem { Text = "Finado", Value = "2" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_Mhealth" class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_healthInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.m_healthInfo, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_toxicomania, "Toxicomanias")
+                            @Html.DropDownListFor(x => x.m_toxicomania,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "No", Value = "0" },
+                                new SelectListItem { Text = "Si -->", Value = "1" },
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div id="show_MToxicomania" class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.m_toxicomaniaInfo, "Especifique")
+                            @Html.TextBoxFor(x => x.m_toxicomaniaInfo, null, new { @class = "form-control" })
+                            <p>Ejemplo: Alcohol, Tabaco, Drogas, Etc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Antecedentes familiar de:</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_alergia, Model.m_alergia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Alergia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_asma, Model.m_asma)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Asma
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_epilepsia, Model.m_epilepsia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Epilepsia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_diabetes, Model.m_diabetes)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Diabetes mellitus
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_hiper, Model.m_hiper)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Hipertensi&oacute;n arterial
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_cancer, Model.m_cancer)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    C&aacute;ncer
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_malform, Model.m_malform)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Malformaciones cong&eacute;nitas
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.m_cardio, Model.m_cardio)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Cardiopat&iacute;as
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.m_others, "Otros antecedentes")
+                                @Html.TextBoxFor(x => x.m_others, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Antecedentes de hermanos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Fecha de nacimiento</th>
+                                        <th>Nombre y apellidos</th>
+                                        <th>Sexo</th>
+                                        <th>Enfermedades</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowBrother">
+                                    @foreach(var b in ViewBag.brother)
+                                    {
+                                        <tr>
+                                            <td>@b.Nacimiento</td>
+                                            <td>@b.Nombre</td>
+                                            <td>@b.Sexo</td>
+                                            <td>@b.Enfermedades</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@b.IdFamiliar, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalHermano" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade" id="modalHermano" tabindex="-1" role="dialog" aria-labelledby="modalHermano" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Registro de hermano</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre completo:</label>
+                                                <input type="text" class="form-control" id="nameBrother">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <select id="sexBrother" class="form-control">
+                                                    <option selected="selected" value="M">Masculino</option>
+                                                    <option value="F">Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento:</label>
+                                                <input type="text" readonly="readonly" id="dateBrother" class="form-control calendar" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Enfermedades</label>
+                                                <textarea id="diseasesBrother" cols="30" rows="5" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="AddBrotherHistory()" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Otros familiares que viven con el menor</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre y apellidos</th>
+                                        <th>Relaci&oacute;n</th>
+                                        <th>Enfermedades</th>
+                                        <th style="width:100px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rowFam">
+                                    @{ var rel = ""; }
+                                    @foreach(var f in ViewBag.family)
+                                    {
+                                        <tr>
+                                            <td>@f.Nombre</td>
+                                            <td>
+                                                @switch ((int)f.Relacion)
+                                                {
+                                                    case 0:
+                                                        rel = "Bisabuelo(a)";
+                                                        break;
+                                                    case 1:
+                                                        rel = "Abuelo(a)";
+                                                        break;
+                                                    case 2:
+                                                        rel = "Sobrino(a)";
+                                                        break;
+                                                    case 3:
+                                                        rel = "Tio(a)";
+                                                        break;
+                                                    case 4:
+                                                        rel = "Primo(a)";
+                                                        break;
+                                                    case 5:
+                                                        rel = "Otro";
+                                                        break;
+                                                }
+
+                                                @rel
+                                            </td>
+                                            <td>@f.Enfermedades</td>
+                                            <td>
+                                                <a style="cursor:pointer" onclick="Delete(@f.IdFamiliar, this)" class="text-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                    &nbsp;Eliminar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" data-toggle="modal" data-target="#modalFamiliar" class="btn btn-default">Agregar registro</a>
+                    </div>
+                    <div class="modal fade " id="modalFamiliar" tabindex="-1" role="dialog" aria-labelledby="modalFamiliar" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Registro de familiares</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre completo</label>
+                                                <input type="text" class="form-control" id="nameFam">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Relación</label>
+                                                <select id="relationFam" class="form-control">
+                                                    <option selected="selected" value="0">Bisabuelo(a)</option>
+                                                    <option value="1">Abuelo(a)</option>
+                                                    <option value="2">Sobrino(a)</option>
+                                                    <option value="3">Tio(a)</option>
+                                                    <option value="4">Primo(a)</option>
+                                                    <option value="5">Otros -&gt;</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="showRelation" class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Especifique</label>
+                                                <input type="text" class="form-control" id="otherFam" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Enfermedades</label>
+                                                <textarea id="diseasesFam" cols="30" rows="5" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="AddOtherFamily()" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mas informaci&oacute;n</h3>
+            </div>
+            <div class="panel-body">
+                <fieldset>
+                    <legend>Determinar meses de:</legend>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.cefalico, "Sostén cefálico")
+                                @Html.DropDownListFor(x => x.cefalico,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.ablactacion, "Ablactación")
+                                @Html.DropDownListFor(x => x.ablactacion,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.sedente, "Posición sedente")
+                                @Html.DropDownListFor(x => x.sedente,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.destete, "Destete")
+                                @Html.DropDownListFor(x => x.destete,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.caminar, "Caminar sin ayuda")
+                                @Html.DropDownListFor(x => x.caminar,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.silaba, "Primera sílaba")
+                                @Html.DropDownListFor(x => x.silaba,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.palabras, "Primeras palabras")
+                                @Html.DropDownListFor(x => x.palabras,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Determinar edad de ingresos en años a:</legend>
+                    <div class="row">
+                        @{ 
+                            List<SelectListItem> lt = new List<SelectListItem>();
+                            for(int n = 0; n <= 18; n++)
+                            {
+                                lt.Add(new SelectListItem { Text = n.ToString(), Value = n.ToString() });
+                            }
+                        }
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.guarderia, "Guarderia")
+                                @Html.DropDownListFor(x => x.guarderia, lt, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.jardin, "Jardin")
+                                @Html.DropDownListFor(x => x.jardin, lt, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.primaria, "Educación Primaria")
+                                @Html.DropDownListFor(x => x.primaria,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.secundaria, "Educación Secundaria")
+                                @Html.DropDownListFor(x => x.secundaria,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.preparatoria, "Educación Preparatoria")
+                                @Html.DropDownListFor(x => x.preparatoria,
+                                ViewBag.months as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Informaci&oacute;n de la vivienda</legend>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.urbanizacion, "Urbanización")
+                                @Html.DropDownListFor(x => x.urbanizacion, 
+                                new List<SelectListItem>() {
+                                   new SelectListItem { Value = "0", Text = "Urbana (Todos los servicios públicos)" },
+                                   new SelectListItem { Value = "1", Text = "Semi-urbana (Algunos servicios públicos)" },
+                                   new SelectListItem { Value = "2", Text = "Rural (Sin servicios públicos)" }
+                                }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.vivienda, "Tipo de vivienda")
+                                @Html.DropDownListFor(x => x.vivienda,
+                                new List<SelectListItem>() {
+                                   new SelectListItem { Value = "0", Text = "Propia" },
+                                   new SelectListItem { Value = "1", Text = "Rentada" },
+                                   new SelectListItem { Value = "2", Text = "Prestada" }
+                                }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.cohabitan, "Elementos que cohabitan")
+                                @Html.DropDownListFor(x => x.cohabitan,
+                                new List<SelectListItem>() {
+                                   new SelectListItem { Value = "1", Text = "1" },
+                                   new SelectListItem { Value = "2", Text = "2" },
+                                   new SelectListItem { Value = "3", Text = "3" },
+                                   new SelectListItem { Value = "4", Text = "4" },
+                                   new SelectListItem { Value = "5", Text = "5" },
+                                   new SelectListItem { Value = "6", Text = "6" },
+                                   new SelectListItem { Value = "7", Text = "7" },
+                                   new SelectListItem { Value = "8", Text = "8" },
+                                   new SelectListItem { Value = "9", Text = "9" },
+                                   new SelectListItem { Value = "10", Text = "10 o más" }
+                                }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-toggle="modal" data-target="#dheredo" id="showModal"></a>
+    <div class="modal fade" id="dheredo" tabindex="-1" role="dialog" aria-labelledby="dheredo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Antecedentes HeredoFamiliares</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                            }
+
+<script>
+    $(function () {
+        
+        var urlAddBrother = '@Url.Action("AddBrother", "Antecedent")';
+        var urlOtherFamilty = '@Url.Action("AddOtherFamily", "Antecedent")';
+        var urlRemove = '@Url.Action("RemoveHeredo", "Antecedent")';
+
+        Init(urlAddBrother, urlOtherFamilty, urlRemove);
+
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack)
+            $('#showModal').trigger('click', function(){}); 
+    })
+</script>

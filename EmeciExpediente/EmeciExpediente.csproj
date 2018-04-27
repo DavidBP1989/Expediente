@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D95B8F26-7CDF-47A4-8F14-766A3C849DAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmeciExpediente</RootNamespace>
+    <AssemblyName>EmeciExpediente</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EmeciCommon, Version=1.0.3546.19668, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Proyectos Casa\EMECI\EmeciDoctoresV2\bin\EmeciCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="EmeciDataAccess">
+      <HintPath>.\EmeciDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="EmeciFacade, Version=1.0.3546.19668, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Proyectos Casa\EMECI\EmeciDoctoresV2\bin\EmeciFacade.dll</HintPath>
+    </Reference>
+    <Reference Include="EmeciRules">
+      <HintPath>.\EmeciRules.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesEmeci.aspx.cs">
+      <DependentUpon>AccesEmeci.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccesEmeci.aspx.designer.cs">
+      <DependentUpon>AccesEmeci.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AntecedentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ExpedientController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\InitController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\VacunasController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Access.cs" />
+    <Compile Include="Models\AccessByCoordinate.cs" />
+    <Compile Include="Models\CatCategoEstudios.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catdiagnostico.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEstudios.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catrecetas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChangePwd.cs" />
+    <Compile Include="Models\Ciudades.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsultaGinecologa.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsultaObstetrica.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Consultas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatosTarjeta.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diagnosticos.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiagnosticosExc.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DosisAplicadaVacuna.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Especialidades.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estados.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estudios.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstudiosGab.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstudiosLab.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Familiares.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GeneralInformation.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Imagenes.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImagesAppModel.cs" />
+    <Compile Include="Models\ImagesModel.cs" />
+    <Compile Include="Models\ListaVacunas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medico.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBirth.cs" />
+    <Compile Include="Models\ModelDataBirth.cs" />
+    <Compile Include="Models\ModelExpediente.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExpediente.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExpediente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExpediente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExpediente.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelGinecologicos.cs" />
+    <Compile Include="Models\ModelHeredoF.cs" />
+    <Compile Include="Models\ModelObstetrico.cs" />
+    <Compile Include="Models\ModelPathological.cs" />
+    <Compile Include="Models\ModelVaccine.cs" />
+    <Compile Include="Models\Paciente.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patologias.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Recetas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Registro.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RememberPwd.cs" />
+    <Compile Include="Models\Tarjetas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TemaComentarios.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Temas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trackermedicos.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VaccinesModel.cs" />
+    <Compile Include="Models\Vacunas.cs">
+      <DependentUpon>ModelExpediente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccesEmeci.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Emeci.css" />
+    <Content Include="Content\forms.css" />
+    <Content Include="Content\header.css" />
+    <Content Include="Content\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\images\ui-bg_flat_0_888888_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_25_e1f0f5_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_55_444444_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_309bbf_256x240.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_bf3030_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\pikaday.css" />
+    <Content Include="Content\tables.css" />
+    <Content Include="EmeciCommon.dll" />
+    <Content Include="EmeciFacade.dll" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\demo-foto-ampliada.jpg" />
+    <Content Include="images\emeci-logo.png" />
+    <Content Include="images\foto-bebe.png" />
+    <Content Include="images\icono-antecedentes.png" />
+    <Content Include="images\icono-consultas.png" />
+    <Content Include="images\icono-estudios.png" />
+    <Content Include="images\icono-generales.png" />
+    <Content Include="images\icono-gineco.png" />
+    <Content Include="images\icono-imagenes.png" />
+    <Content Include="images\icono-nacimiento.png" />
+    <Content Include="images\icono-otras-consultas.png" />
+    <Content Include="images\icono-resumen.png" />
+    <Content Include="images\icono-vacunas.png" />
+    <Content Include="images\logo-emeci.png" />
+    <Content Include="Models\ModelExpediente.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelExpediente.edmx</DependentUpon>
+      <LastGenOutput>ModelExpediente.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelExpediente.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelExpediente.edmx</DependentUpon>
+      <LastGenOutput>ModelExpediente.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\Antecedent\Ginecologico.js" />
+    <Content Include="Scripts\Antecedent\Heredofamiliares.js" />
+    <Content Include="Scripts\Antecedent\Obstetrico.js" />
+    <Content Include="Scripts\Antecedent\Pathological.js" />
+    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\ModelExpediente.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelExpediente.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelExpediente.edmx.diagram">
+      <DependentUpon>ModelExpediente.edmx</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\.DS_Store" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\forms.css.map" />
+    <Content Include="Content\forms.scss" />
+    <Content Include="Content\header.css.map" />
+    <Content Include="Content\header.scss" />
+    <Content Include="Content\main-tabs.css.map" />
+    <Content Include="Content\main-tabs.scss" />
+    <Content Include="Content\main.css.map" />
+    <Content Include="Content\main.scss" />
+    <Content Include="Content\panels.css.map" />
+    <Content Include="Content\panels.scss" />
+    <Content Include="Content\section.scss" />
+    <Content Include="Content\tables.css.map" />
+    <Content Include="Content\tables.scss" />
+    <Content Include="Content\vars.css.map" />
+    <Content Include="Content\vars.scss" />
+    <None Include="Properties\PublishProfiles\emeciexpediente.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\EMECI\Header.js" />
+    <Content Include="Scripts\Expedient\DataBirth.js" />
+    <Content Include="Scripts\Expedient\GeneralInfo.js" />
+    <Content Include="Scripts\fancybox\blank.gif" />
+    <Content Include="Scripts\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox\fancybox_overlay.png" />
+    <Content Include="Scripts\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\pikaday.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ValidateForm.js" />
+    <Content Include="Scripts\waitingfor.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Expedient\GeneralInfo.cshtml" />
+    <Content Include="Views\Expedient\Summary.cshtml" />
+    <Content Include="Views\Expedient\Consultation.cshtml" />
+    <Content Include="Views\Antecedent\Pathological.cshtml" />
+    <Content Include="Views\Antecedent\HeredoFamiliares.cshtml" />
+    <Content Include="Views\Shared\_LogIn.cshtml" />
+    <Content Include="Views\LogIn\FirstAccess.cshtml" />
+    <Content Include="Views\LogIn\SecondAccess.cshtml" />
+    <Content Include="Views\Expedient\DataBirth.cshtml" />
+    <Content Include="Views\Expedient\OtherQueries.cshtml" />
+    <Content Include="Views\Images\Studies.cshtml" />
+    <Content Include="Views\Expedient\Vaccines.cshtml" />
+    <Content Include="Views\LogIn\RememberPassword.cshtml" />
+    <Content Include="Views\LogIn\ChangePassword.cshtml" />
+    <Content Include="Views\Expedient\Studies.cshtml" />
+    <Content Include="Views\Expedient\Scanning.cshtml" />
+    <Content Include="Views\Antecedent\Ginecologicos.cshtml" />
+    <Content Include="Views\Antecedent\Obstetricos.cshtml" />
+    <Content Include="Views\Expedient\Obstetrica.cshtml" />
+    <Content Include="Views\Expedient\Gynecological.cshtml" />
+    <Content Include="Views\Images\Vacunas.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Images\Generales.cshtml" />
+    <Content Include="Views\Images\Recetas.cshtml" />
+    <Content Include="Views\Images\Laboratorio.cshtml" />
+    <Content Include="Views\Images\Diagnosticos.cshtml" />
+    <Content Include="Views\Images\Medicamentos.cshtml" />
+    <Content Include="Views\Images\MenuImages.cshtml" />
+    <Content Include="Views\Shared\_LayoutBootstrap.cshtml" />
+    <Content Include="Views\Images\ImageContent.cshtml" />
+    <Content Include="Views\Vacunas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="imagenes\expedientes\81\" />
+    <Folder Include="Views\Init\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50348</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50348/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

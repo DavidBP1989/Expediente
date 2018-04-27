@@ -1,0 +1,22 @@
+/* Panel.scss
+ * paneles de contenido con personalizacion.
+ * utilizados como contenedores principales ,
+ * de informacion. */
+
+.panel {
+  background-color: #f8f8f8;
+
+  .panel-heading {
+
+    .panel-title {
+      color: $primary;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 600;
+    }
+
+  }
+
+
+}

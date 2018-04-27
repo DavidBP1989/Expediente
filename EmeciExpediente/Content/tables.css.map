@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,KAAM;EACJ,gBAAgB,EAAE,IAAI;EAEtB,cAAS;IACP,gBAAgB,EAAE,IAAI",
+"sources": ["tables.scss"],
+"names": [],
+"file": "tables.css"
+}

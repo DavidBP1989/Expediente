@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMECI</title>
+
+
+
+    <link href="~/content/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+
+    @Styles.Render("~/Content/jquery-ui.css")
+    @Styles.Render("~/Content/pikaday.css")
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
+    @Scripts.Render("~/Scripts/ValidateForm.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/pikaday.js")
+
+    <script>
+        $(document).ready(function (){
+            var sex = '@ViewBag.sexPatient';
+            var age = @ViewBag.agePatient;
+            var color;
+
+            if ((age >= 0 && age <= 18) && sex == 'M') color = '#92CDDC';
+            if ((age >= 0 && age <= 11) && sex == 'F') color = '#FF99FF';
+            if (age >= 12 && sex == 'F') color = '#66FF99';
+            if ((age >= 19 && age <= 60) && sex == 'M') color = '#FFCC66';
+            if (age >= 61 && sex == 'M') color = '#BFBFBF';
+
+            $('.section-header').css('background-color', color);
+        })
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- App Header
+            Incluye barra superior, logo e informacion del usuario
+        -->
+        <div class="app-header">
+            <div class="top-bar">
+                <a href="#" class="menu-toggle">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                </a>
+                <ul class="list-inline">
+                    <li><a href="http://www.emeci.com/Manual%20Expediente.pdf" target="_blank">Manual</a></li>
+                    <li><a>Web EMECI</a></li>
+                    <li class="divisor"></li>
+                    <li>
+                        <a href="@Url.Action("SignOff", "Base")">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            Cerrar expediente
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="page-header">
+                <a href="#" class="logo">
+                    <img src="~/images/logo-emeci.png" alt="LOGO EMECI" />
+                </a>
+                <div class="user-info">
+                    <div class="full-name">
+                        @ViewBag.header_patientName
+                    </div>
+                    <a href="@Url.Action("ChangePassword", "LogIn")" class="update-password">
+                        <i class="glyphicon glyphicon-zoom-in"></i>
+                        Cambiar Contraseña
+                    </a>
+                    <img src="~/images/foto-bebe.png" class="photo" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Contendedor de informacion -->
+        <div class="app-container">
+            <div class="main-tabs">
+                <ul>
+                    <li> 
+                        <a href="~/Expedient/Summary">
+                            <span class="icon resumen"></span>
+                            <span class="label">Resumen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Expedient/GeneralInfo">
+                            <span class="icon generales"></span>
+                            <span class="label">Generales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Expedient/Consultation">
+                            <span class="icon consultas"></span>
+                            <span class="label">Consultas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Expedient/DataBirth">
+                            <span class="icon nacimiento"></span>
+                            <span class="label">Nacimiento</span>
+                        </a>
+                    </li>
+                    @if ((bool)ViewBag.showObstetrica_Ginecologia || (bool)ViewBag.showAntecedent)
+                    {
+<<<<<<< HEAD
+                    <li>
+                            <a href="~/Antecedent/NoPathological">
+                            <span class="icon antecedentes"></span>
+                            <span class="label">Antecedentes</span>
+                        </a>
+                    </li>
+=======
+                        <li>
+                            <a href="~/Antecedent/NoPathological">
+                                <span class="icon antecedentes"></span>
+                                <span class="label">Antecedentes</span>
+                            </a>
+                        </li>
+>>>>>>> 2b13fe1685793c366c57b2c006144fedb79fd1e4
+                    }
+                    <li>
+                        <a href="~/Expedient/Vaccines">
+                            <span class="icon vacunas"></span>
+                            <span class="label">Vacunas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Expedient/Studies">
+                            <span class="icon estudios"></span>
+                            <span class="label">Estudios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Images/Studies">
+                            <span class="icon imagenes"></span>
+                            <span class="label">Im&aacute;genes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Expedient/OtherQueries">
+                            <span class="icon otras-consultas"></span>
+                            <span class="label">Otras consultas</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="main-container">
+                <div class="section">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+	<script>
+
+
+    $(document).ready(function() {
+
+        /**
+         * Detect click over the Menu Switch (burger menu)
+         * and show/hide the sidebar menu.
+         *
+         * @constructor
+         */
+
+        $(".menu-toggle").click( function() {
+
+            $(".main-tabs").toggleClass("show-me");
+        });
+
+
+    });
+
+
+
+</script>
+
+</body>
+</html>

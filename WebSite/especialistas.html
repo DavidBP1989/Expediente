@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="emeciModule" ng-controller="emeciController" >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expediente Médico Electrónico Clínico Internacional</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/emeci.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+  
+</head>
+
+<body class="especialistas" >
+
+
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="images/logo-emeci.png" alt=""></a>
+        </div>
+        
+        
+        <!-- Topbar -->
+        <div class="topbar hidden-xs">
+            <ul class="loginbar pull-right list-inline top-links">						 
+                <li><a href="https://www.emeci.com/consultamedico/medico/login"><img src="images/icono-acceso.png" /> Acceso a Médicos</a></li>
+                <li><a href="https://www.facebook.com/Expediente.EMECI"><img src="images/icono-facebook.png" /> EMECI</a></li>
+                <li><a href="https://twitter.com/emecimx"><img src="images/icono-twitter.png" /> emecimx</a></li>
+            </ul>
+        </div>
+        <!-- End Topbar -->
+        
+ 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="page-scroll" href="home.aspx">Inicio</a></li>
+                <li><a class="page-scroll" href="membresias.aspx">Membresias</a></li>
+                <li><a class="page-scroll" href="especialistas.html">Especialistas</a></li>
+                <li><a class="page-scroll" href="tips.html">Tips</a></li>
+                <li><a class="page-scroll btn btn-primary" href="https://www.emeci.com/expediente/loginExp.aspx">Acceso a Expediente</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
+ <!-- Header -->
+<header class="especialistas">
+    <div class="container">
+        
+       <div class="intro">
+        <div class="row">
+        
+            <div class="col-md-10 col-md-push-1">
+                     <div class="intro-especialistas">
+                        <h2>Directorio de Especialistas</h2>
+                        <p>EMECI le brinda un amplio directorio de Profesionales en la Salud que cuentan con todos los requisitos necesarios para colocarlos como Médicos de Seriedad y debidamente establecidos.</p>
+                        
+                    </div>
+             </div>
+             
+        
+        </div>
+        </div>
+        
+        
+    </div>
+</header>
+
+
+
+<section class="bodycopy">
+    <div class="container">
+
+		<div class="col-md-10 col-md-push-1">
+        
+        	<div class="filtros">
+ 
+                <form class="form-inline" role="form" method="get" action="#">
+                    <!--
+                    <div class="form-group">
+                        <label for="sel1">Especialidad</label> <br>
+                        <select class="form-control" id="sel1" >
+                            <option>Todas</option>
+
+                            <option>Medicina General</option>
+                            <option>Pediatría</option>
+                            <option>Ginecoobstetricia</option>
+                            <option>Cirugía General</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel2">Subespecialidad</label> <br>
+                        <select class="form-control" id="sel2">
+                            <option>Todas</option>
+                            <option value="">Cardiopediatría</option>
+                        </select>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <label for="sel3">Estado</label> <br>
+                        <select class="form-control" id="sel3" ng-model="es" ng-change="getCiudades(es.idEstado)"
+                                data-ng-options="es as es.Nombre for es in Estados "  >
+
+                            <!--- 
+
+                            <option>Todas</option>
+                            <option>Baja California Su	r</option>
+                                --> 
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sel4">Ciudad</label> <br>
+                        <select class="form-control" id="sCiudad"  >
+                            <option ng-repeat="ci in Ciudades" value="{{ci.idciudad}}" >{{ci.Nombre}}</option>
+                        </select>
+                    </div>
+                     
+                    <button type="button" ng-click="btn_Click()" class="btn btn-primary">Buscar</button>
+                </form>
+
+             </div>
+        
+        
+  
+             <div class="listado"  >
+                 
+                 <div ng-show="loading" class="loading"><img src="images/Loading.gif" width="200px" height="200px">LOADING...</div>
+
+             	<!-- Medico Gold -->
+             	<div class="medico" ng-repeat="s in especialistas">
+                        
+                		<div class="row">
+                        	
+                            <div class="col-md-2">
+                                
+                                    <img ng-src="http://www.emeci.com/Imagenes/Pediatras/Ped{{s.Idmedico}}.jpg" class="img-responsive" alt="" onerror="this.src = 'images/sin-foto.png';"  >
+                               
+
+                            </div>
+                            <div class="col-md-8">
+                            	
+                                <h3><a href="medico.html?idespec={{s.Idmedico}}">{{s.Nombre}} {{s.Apellido}}
+                                    
+                                   </a></h3>
+                                <div class="area">Medico Pediatra - {{s.especialidad}}</div>
+                                <div class="domicilio">Domicilio, {{s.DomicilioConsultorio}}</div>
+                                <div class="localizacion">{{s.ciudad}}, {{s.Estado}}</div>
+                               	<div class="telefonos">                                	
+                                    <div class="telefono">
+                                    	<img src="images/icono-telefono.png" class="icono">
+                                        <span>{{s.TelefonoCel}}</span> - <span class="tipo">Consultorio</span>
+                                    </div>
+                                    <div class="telefono">
+                                    	<img src="images/icono-telefono.png" class="icono">
+                                        <span>{{s.Telefono}}</span> - <span class="tipo">Casa</span>
+                                    </div>
+                                </div>
+                            	
+                            </div>
+                            <div class="col-md-2">
+
+                                
+                                <div ng-if="s.PediatraPlus == 2">
+                                    <!-- code to render a large video block-->
+
+                                    <img src="images/emeci-gold.png" class="img-responsive center-block" alt="">
+                                </div>
+                                <div ng-if="s.PediatraPlus == 1">
+                                        <!-- code to render a large video block-->
+                                        <img src="images/emeci-silver.png" class="img-responsive center-block" alt="">
+                                </div>
+                               
+                            </div>
+                            
+                        </div>
+                	
+                </div>
+             
+             	<!-- Medico Silver
+                <div class="medico">
+                
+                		<div class="row">
+                        	
+                            <div class="col-md-2">
+                            
+                            	<img src="images/fotomedico2.jpg" class="img-responsive" alt="">
+                             </div>
+                            <div class="col-md-8">
+                            	
+                                <h3>Dr. Emmanuel Torres Arnaut</h3>
+                                <div class="area">Medico Pediatra - Especialidad Cirujano Pediatra</div>
+                                <div class="domicilio">Domicilio, Colonia Centro</div>
+                                <div class="localizacion">La Paz, Baja California Sur, México</div>
+                               	<div class="telefonos">                                	
+                                    <div class="telefono">
+                                    	<img src="images/icono-telefono.png" class="icono">
+                                        <span>612) 125 51 62</span> - <span class="tipo">Consultorio</span>
+                                    </div>
+                                    <div class="telefono">
+                                    	<img src="images/icono-telefono.png" class="icono">
+                                        <span>612) 125 62 51</span> - <span class="tipo">Casa</span>
+                                    </div>
+                                </div>
+                            	
+                            </div>
+                            <div class="col-md-2">
+                            	<img src="images/emeci-silver.png" class="img-responsive center-block"  alt="">
+                            </div>
+                            
+                        </div>
+                	
+                </div>
+                     -->
+				<!-- Medico Basico 
+				<div class="medico">
+                
+                		<div class="row">
+                        	
+                            <div class="col-md-2">
+                            
+                            	<img src="images/sin-foto.png" class="img-responsive" alt="">
+                             </div>
+                            <div class="col-md-8">
+                            	
+                                <h3>Dr. Mónica Cecilia Sánchez Saynes</h3>
+                                <div class="area">Medico Pediatra - Especialidad Cirujano Pediatra</div>
+                                <div class="domicilio">Serdan E República y Torre Iglesia </div>
+                                <div class="localizacion">La Paz, Baja California Sur, México</div>
+                               	<div class="telefonos">                                	
+                                    <div class="telefono">
+                                    	<img src="images/icono-telefono.png" class="icono">
+                                        <span>612 185 2854</span> - <span class="tipo">Consultorio</span>
+                                    </div>
+                                     
+                                </div>
+                            	
+                            </div>
+                            <div class="col-md-2">
+                            	 
+                            </div>
+                            
+                        </div>
+                	
+                </div>                
+             
+             	-->
+             </div>
+          
+  
+  		</div>
+   
+	</div>
+</section>
+
+
+
+
+<footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <p><strong>Expediente Médico Electrónico Clínico Internacional</strong> <br>
+        2016 &reg; Todos los Derechos Resevados </p>
+         
+      </div>
+      <div class="col-xs-6">
+        <ul class="accesos list-inline">
+          <li><a href="#">Apps Móviles</a></li>
+          <li><a href="#">Soporte</a></li>
+          <li><a href="avisos-de-privacidad.html">Aviso de Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+  <script>
+    $(window).scroll(function() {
+		if ($(this).scrollTop() > 100){ // Set position from top to add class
+			$('.navbar').addClass("shrink");
+		} else {
+			$('.navbar').removeClass("shrink");
+		}
+    });
+
+    
+
+    </script>
+    
+    
+    
+</body>
+</html>

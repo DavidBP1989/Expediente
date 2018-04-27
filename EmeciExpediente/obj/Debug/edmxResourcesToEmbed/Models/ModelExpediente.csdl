@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="emeciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="emeciEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CatCategoEstudios" EntityType="emeciModel.CatCategoEstudios" />
+    <EntitySet Name="catdiagnostico" EntityType="emeciModel.catdiagnostico" />
+    <EntitySet Name="CatEstudios" EntityType="emeciModel.CatEstudios" />
+    <EntitySet Name="catrecetas" EntityType="emeciModel.catrecetas" />
+    <EntitySet Name="ConsultaGinecologa" EntityType="emeciModel.ConsultaGinecologa" />
+    <EntitySet Name="ConsultaObstetrica" EntityType="emeciModel.ConsultaObstetrica" />
+    <EntitySet Name="Consultas" EntityType="emeciModel.Consultas" />
+    <EntitySet Name="DatosTarjeta" EntityType="emeciModel.DatosTarjeta" />
+    <EntitySet Name="Diagnosticos" EntityType="emeciModel.Diagnosticos" />
+    <EntitySet Name="DiagnosticosExc" EntityType="emeciModel.DiagnosticosExc" />
+    <EntitySet Name="Especialidades" EntityType="emeciModel.Especialidades" />
+    <EntitySet Name="EstudiosGab" EntityType="emeciModel.EstudiosGab" />
+    <EntitySet Name="EstudiosLab" EntityType="emeciModel.EstudiosLab" />
+    <EntitySet Name="Familiares" EntityType="emeciModel.Familiares" />
+    <EntitySet Name="Patologias" EntityType="emeciModel.Patologias" />
+    <EntitySet Name="Recetas" EntityType="emeciModel.Recetas" />
+    <EntitySet Name="Registro" EntityType="emeciModel.Registro" />
+    <EntitySet Name="Vacunas" EntityType="emeciModel.Vacunas" />
+    <EntitySet Name="Estados" EntityType="emeciModel.Estados" />
+    <EntitySet Name="Estudios" EntityType="emeciModel.Estudios" />
+    <EntitySet Name="Imagenes" EntityType="emeciModel.Imagenes" />
+    <EntitySet Name="Medico" EntityType="emeciModel.Medico" />
+    <EntitySet Name="Tarjetas" EntityType="emeciModel.Tarjetas" />
+    <EntitySet Name="TemaComentarios" EntityType="emeciModel.TemaComentarios" />
+    <EntitySet Name="Temas" EntityType="emeciModel.Temas" />
+    <EntitySet Name="trackermedicos" EntityType="emeciModel.trackermedicos" />
+    <EntitySet Name="Ciudades" EntityType="emeciModel.Ciudades" />
+    <EntitySet Name="Paciente" EntityType="emeciModel.Paciente" />
+    <EntitySet Name="DosisAplicadaVacuna" EntityType="emeciModel.DosisAplicadaVacuna" />
+    <EntitySet Name="ListaVacunas" EntityType="emeciModel.ListaVacunas" />
+  </EntityContainer>
+  <EntityType Name="CatCategoEstudios">
+    <Key>
+      <PropertyRef Name="idcategoriaestudio" />
+    </Key>
+    <Property Name="idcategoriaestudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="Byte" />
+  </EntityType>
+  <EntityType Name="catdiagnostico">
+    <Key>
+      <PropertyRef Name="idcatdiagnostico" />
+    </Key>
+    <Property Name="idcatdiagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lineas" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="idmedico" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CatEstudios">
+    <Key>
+      <PropertyRef Name="idestudio" />
+    </Key>
+    <Property Name="idestudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="idcategoriaestudio" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="catrecetas">
+    <Key>
+      <PropertyRef Name="idcatreceta" />
+    </Key>
+    <Property Name="idcatreceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idmedico" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ConsultaGinecologa">
+    <Key>
+      <PropertyRef Name="idconsultaginecologa" />
+    </Key>
+    <Property Name="idconsultaginecologa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="FechaUltimaMestruacion" Type="DateTime" Precision="0" />
+    <Property Name="Gestas" Type="Byte" />
+    <Property Name="ParaGestas" Type="Byte" />
+    <Property Name="Cesareas" Type="Byte" />
+    <Property Name="abortos" Type="Byte" />
+    <Property Name="RecienNacidosVivos" Type="Byte" />
+    <Property Name="mortinatos" Type="Byte" />
+    <Property Name="EdadInicioVidaSexual" Type="Byte" />
+    <Property Name="menacma" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="oligonorrea" Type="Boolean" />
+    <Property Name="Proiomenorrea" Type="Boolean" />
+    <Property Name="Hipermenorrea" Type="Boolean" />
+    <Property Name="Dismenorrea" Type="Boolean" />
+    <Property Name="Dispareunia" Type="Boolean" />
+    <Property Name="Leucorrea" Type="Boolean" />
+    <Property Name="Lactorrea" Type="Boolean" />
+    <Property Name="Amenorrea" Type="Boolean" />
+    <Property Name="Metrorragia" Type="Boolean" />
+    <Property Name="Otros" Type="Boolean" />
+    <Property Name="OtrosEspecifique" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TienePareja" Type="Boolean" />
+    <Property Name="SexoPareja" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoCivilPareja" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="GrupoRHPareja" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimientoPareja" Type="DateTime" Precision="0" />
+    <Property Name="OcupacionPareja" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoPareja" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="nombrePareja" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="edadPareja" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ConsultaObstetrica">
+    <Key>
+      <PropertyRef Name="IdConsultaObstetrica" />
+    </Key>
+    <Property Name="IdConsultaObstetrica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noembarazo" Type="Byte" />
+    <Property Name="abortos" Type="Byte" />
+    <Property Name="FechaUltmoParto" Type="DateTime" Precision="0" />
+    <Property Name="PrimerDiaUltimaMestruacuion" Type="DateTime" Precision="0" />
+    <Property Name="ToxemiasPrevias" Type="Byte" />
+    <Property Name="CesareasPrevia" Type="Byte" />
+    <Property Name="UsoDeForceps" Type="Byte" />
+    <Property Name="Motinatos" Type="Byte" />
+    <Property Name="RMVivos" Type="Byte" />
+    <Property Name="EmbarazoEtopicos" Type="Byte" />
+    <Property Name="EmbrazosComplicadosPrevios" Type="Byte" />
+    <Property Name="EmbrazoEtopicoExplique" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmbarazosComplicadosExplique" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoComplicacionesPertinales" Type="Byte" />
+    <Property Name="ComplicacionesPerinatalesExplique" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoEmbrazosAnormales" Type="Byte" />
+    <Property Name="EmbarazosAnormalesExplique" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FU" Type="Byte" />
+    <Property Name="FCF" Type="Byte" />
+    <Property Name="CC" Type="Byte" />
+    <Property Name="CA" Type="Byte" />
+    <Property Name="LF" Type="Byte" />
+    <Property Name="DSP" Type="Byte" />
+    <Property Name="Posicion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Presentacion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="siuacuion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Actitud" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MovimientosFetales" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PesoAproxProducto" Type="Byte" />
+    <Property Name="TA" Type="Byte" />
+    <Property Name="FCM" Type="Byte" />
+    <Property Name="Edema" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SeHizoUf" Type="Boolean" />
+    <Property Name="idconsulta" Type="Int32" />
+    <Property Name="activaSexualmente" Type="Boolean" />
+    <Property Name="EspecifiqueToxemias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Partos" Type="Byte" />
+    <Property Name="TipoDistocia" Type="Byte" />
+    <Property Name="MotivoDistocia" Type="Byte" />
+    <Property Name="EspecifiqueMotivoDistocia" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="EspecifiqueTipoDistocia" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ultrasonido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="exploracionFisica" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Gestas" Type="Byte" />
+    <Property Name="PartosEutocicos" Type="Byte" />
+    <Property Name="PartosDistocios" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Consultas">
+    <Key>
+      <PropertyRef Name="idconsulta" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Peso" Type="Single" />
+    <Property Name="Altura" Type="Single" />
+    <Property Name="Temperatura" Type="Single" />
+    <Property Name="Cabeza" Type="Single" />
+    <Property Name="perimetroCefalico" Type="Single" />
+    <Property Name="TensionArterial" Type="Int32" />
+    <Property Name="TensionArterialB" Type="Int32" />
+    <Property Name="FrecuenciaCardiaca" Type="Int32" />
+    <Property Name="FrecuenciaRespiratoria" Type="Int32" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="motivo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SignosSintomas1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SignosSintomas2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SignosSintomas3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="MedidasPreventivas" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ProximaCita" Type="DateTime" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pronostico" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DatosTarjeta">
+    <Key>
+      <PropertyRef Name="iddatostarjeta" />
+    </Key>
+    <Property Name="noTarjeta" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Coordenada" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Dato" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="iddatostarjeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Diagnosticos">
+    <Key>
+      <PropertyRef Name="iddiagnostico" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="Lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="LineasVital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idconsulta" Type="Int32" />
+    <Property Name="iddiagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="DiagnosticosExc">
+    <Key>
+      <PropertyRef Name="iddiagexc" />
+    </Key>
+    <Property Name="idconsulta" Type="Int32" />
+    <Property Name="iddiagexc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Especialidades">
+    <Key>
+      <PropertyRef Name="IdEspecialidad" />
+    </Key>
+    <Property Name="IdEspecialidad" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EstudiosGab">
+    <Key>
+      <PropertyRef Name="idestudiogab" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="Lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="idestudiogab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EstudiosLab">
+    <Key>
+      <PropertyRef Name="idestudiolab" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="Lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="idestudiolab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Familiares">
+    <Key>
+      <PropertyRef Name="IdFamiliar" />
+    </Key>
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IdFamiliar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Enfermedades" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Relacion" Type="Int32" Nullable="false" />
+    <Property Name="DetalleRelacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idpaciente" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Patologias">
+    <Key>
+      <PropertyRef Name="idpatologia" />
+    </Key>
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Alergeno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manejo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Evoluciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EdadAdquirida" Type="Int32" />
+    <Property Name="Categoria" Type="Int32" />
+    <Property Name="RelacionSospechosa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="idpatologia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Recetas">
+    <Key>
+      <PropertyRef Name="idreceta" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="Lineas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="idreceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Registro">
+    <Key>
+      <PropertyRef Name="idRegistro" />
+    </Key>
+    <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Domicilio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Colonia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="idCiudad" Type="Int32" />
+    <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoCel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IdUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+    <Property Name="FechaExpiracion" Type="DateTime" Precision="0" />
+    <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FechaRenovacion" Type="DateTime" Precision="0" />
+    <Property Name="OtraCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoExt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="clave" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Emeci" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="apellido2" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vacunas">
+    <Key>
+      <PropertyRef Name="idvacuna" />
+    </Key>
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="vacunaenfprev" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vacunadosis" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vacunaEdad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="idvacuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="idEstado" />
+      <PropertyRef Name="IdPais" />
+    </Key>
+    <Property Name="idEstado" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estudios">
+    <Key>
+      <PropertyRef Name="idEstudio" />
+    </Key>
+    <Property Name="idEstudio" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="NombreEstudio" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CentroMedico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idexpediente" Type="Int32" />
+    <Property Name="Resultado" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Imagenes">
+    <Key>
+      <PropertyRef Name="IdImagen" />
+    </Key>
+    <Property Name="IdImagen" Type="Int32" Nullable="false" />
+    <Property Name="idExpediente" Type="Int32" />
+    <Property Name="Archivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArchivoThumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="IdRegistro" />
+      <PropertyRef Name="Idmedico" />
+    </Key>
+    <Property Name="IdRegistro" Type="Int32" Nullable="false" />
+    <Property Name="Idmedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEspecialidad" Type="Int32" />
+    <Property Name="CedulaEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CertCMCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgrupacionLocal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgrupacionNacional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PediatraPlus" Type="Byte" />
+    <Property Name="CedulaProfesional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoRegSSA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UniversidadEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalResidenciaPediatra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DomicilioConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="computadora" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="guid" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="recetatop" Type="Int32" />
+    <Property Name="recetabottom" Type="Int32" />
+    <Property Name="recetaleft" Type="Int32" />
+    <Property Name="consultatop" Type="Int32" />
+    <Property Name="recetaright" Type="Int32" />
+    <Property Name="consultabottom" Type="Int32" />
+    <Property Name="consultaleft" Type="Int32" />
+    <Property Name="consultaright" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tarjetas">
+    <Key>
+      <PropertyRef Name="idtarjeta" />
+    </Key>
+    <Property Name="idtarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+    <Property Name="FechaExpira" Type="DateTime" Precision="0" />
+    <Property Name="EjeX" Type="Byte" />
+    <Property Name="EjeY" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TemaComentarios">
+    <Key>
+      <PropertyRef Name="idtema" />
+    </Key>
+    <Property Name="IdTemaComentario" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="IdMedico" Type="Int32" />
+    <Property Name="Comentario" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="idtema" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Temas">
+    <Key>
+      <PropertyRef Name="IdTema" />
+    </Key>
+    <Property Name="IdTema" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="idMedicoCreo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="trackermedicos">
+    <Key>
+      <PropertyRef Name="idtracker" />
+    </Key>
+    <Property Name="idtracker" Type="Int32" Nullable="false" />
+    <Property Name="TypeLink" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="idmedico" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Ciudades">
+    <Key>
+      <PropertyRef Name="idciudad" />
+    </Key>
+    <Property Name="idciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="idPaciente" />
+    </Key>
+    <Property Name="IdRegistro" Type="Int32" Nullable="false" />
+    <Property Name="Edad" Type="Int16" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Escolaridad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="grupoRH" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="HospitalNacer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LugarNacer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AbortosPrevios" Type="Byte" />
+    <Property Name="PesoNacer" Type="Single" />
+    <Property Name="TallaNacer" Type="Single" />
+    <Property Name="PerCefalicoNacer" Type="Single" />
+    <Property Name="AlergiaMedicina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AlergiaOtros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Patologia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefonooficina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Etapa" Type="Byte" />
+    <Property Name="TipoEscolaridad" Type="Byte" />
+    <Property Name="otraescolaridad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EmbarazoNo" Type="Byte" />
+    <Property Name="TipoEmbarazo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="EmbarazoParto" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="tipodistocia" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="tipodistociamencione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="motivodistocia" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="motivodistociamencione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CalApgarMin" Type="Byte" />
+    <Property Name="CalApgar5Min" Type="Byte" />
+    <Property Name="CalSilverMin" Type="Byte" />
+    <Property Name="CalSilver5Min" Type="Byte" />
+    <Property Name="Tamizneonatal" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="NoFolioTamiz" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompINM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompINMManejo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompMed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompMedManejo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="lactanciaMat" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="tipolactancia" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="nombreformula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="motivoreduccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="motivoSuspension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fechaConsultaPed" Type="DateTime" Precision="0" />
+    <Property Name="AntecedentePerionatal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rubeola" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="sarampion" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="tosferina" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="roseola" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="varicela" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="EnfInfectocontagiosas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnfContagiosas" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="EnfContagiosasyEvol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NombrePadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ApellPaternoPadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ApellMaternoPadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="NacimientoPadre" Type="DateTime" Precision="0" />
+    <Property Name="EstadoCivilPadre" Type="Int32" />
+    <Property Name="EscolaridadPadre" Type="Int32" />
+    <Property Name="DetalleEscolaridadPadre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaludPadre" Type="Byte" />
+    <Property Name="DetalleSaludPadre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="toxicomaniaPadre" Type="Boolean" />
+    <Property Name="DetalletoxicomaniaPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AntecedentePadre" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="OtrosAntecedentesPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NombreMadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ApellPaternoMadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ApellMaternoMadre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="NacimientoMadre" Type="DateTime" Precision="0" />
+    <Property Name="EstadoCivilMadre" Type="Int32" />
+    <Property Name="EscolaridadMadre" Type="Int32" />
+    <Property Name="DetalleEscolaridadMadre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaludMadre" Type="Byte" />
+    <Property Name="DetalleSaludMadre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="toxicomaniaMadre" Type="Boolean" />
+    <Property Name="DetalletoxicomaniaMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AntecedenteMadre" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="OtrosAntecedentesMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SostenCefalico" Type="Int32" />
+    <Property Name="Ablactacion" Type="Int32" />
+    <Property Name="Posicionsedente" Type="Int32" />
+    <Property Name="Destete" Type="Int32" />
+    <Property Name="Guarderia" Type="Int32" />
+    <Property Name="Jardin" Type="Int32" />
+    <Property Name="Primaria" Type="Int32" />
+    <Property Name="Secundaria" Type="Int32" />
+    <Property Name="Preparatoria" Type="Int32" />
+    <Property Name="Urbanización" Type="Int32" />
+    <Property Name="TipodeVivienda" Type="Int32" />
+    <Property Name="Cohabitantes" Type="Int32" />
+    <Property Name="caminarSinAyuda" Type="Int32" />
+    <Property Name="primerasilaba" Type="Int32" />
+    <Property Name="primeraspalabras" Type="Int32" />
+    <Property Name="historialclinico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="otravacuna" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="vacunaenfprev" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="vacunadosis" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vacunaedad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vacunafecha" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TrataDiagExclusivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="consultas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreCta" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="preClave" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="OtrasConsultas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mortinatos" Type="Byte" />
+    <Property Name="EdadGestal" Type="Byte" />
+    <Property Name="tipoEdadGestal" Type="Byte" />
+    <Property Name="acepto" Type="Boolean" />
+    <Property Name="ocupacion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="religion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EdadMenarca" Type="Int32" />
+    <Property Name="estadocivil" Type="Int32" />
+    <Property Name="menacmia" Type="Int32" />
+    <Property Name="edadPrimerRelacionSexual" Type="Int32" />
+    <Property Name="ultimoPapanicolaou" Type="DateTime" Precision="0" />
+    <Property Name="proximoPapanicolaou" Type="DateTime" Precision="0" />
+    <Property Name="estudiosGinecologicos" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="dispareunia" Type="Boolean" />
+    <Property Name="leucorrea" Type="Boolean" />
+    <Property Name="mencioneLeucorrea" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="lactorrea" Type="Boolean" />
+    <Property Name="enfUteroOvarios" Type="Boolean" />
+    <Property Name="mencioneEnfUteroOvarios" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mamografia" Type="Boolean" />
+    <Property Name="fechaMamografia" Type="DateTime" Precision="0" />
+    <Property Name="fechaProximaMamografia" Type="DateTime" Precision="0" />
+    <Property Name="procQuirurgico" Type="Boolean" />
+    <Property Name="mencioneProcQuirurgico" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="fechaUltimoParto" Type="DateTime" Precision="0" />
+    <Property Name="ultimoDiaRegla" Type="DateTime" Precision="0" />
+    <Property Name="gestas" Type="Int32" />
+    <Property Name="partosNormales" Type="Int32" />
+    <Property Name="partosAnormales" Type="Int32" />
+    <Property Name="cesareas" Type="Int32" />
+    <Property Name="forceps" Type="Int32" />
+    <Property Name="abortos" Type="Int32" />
+    <Property Name="malformados" Type="Int32" />
+    <Property Name="recienNacidosEnfermos" Type="Int32" />
+    <Property Name="embarazoMultiple" Type="Int32" />
+    <Property Name="obitos" Type="Int32" />
+    <Property Name="complicacionEmbarazo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="complicacionParto" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="complicacionRecienNacido" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="complicacionLact" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="rnPesoAlto" Type="Int32" />
+    <Property Name="prematuros" Type="Int32" />
+    <Property Name="Curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DosisAplicadaVacuna">
+    <Key>
+      <PropertyRef Name="IdDosis" />
+    </Key>
+    <Property Name="IdDosis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dosis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Edad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FechaVacunacion" Type="DateTime" Precision="0" />
+    <Property Name="IdVacuna" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListaVacunas">
+    <Key>
+      <PropertyRef Name="IdVacuna" />
+    </Key>
+    <Property Name="IdVacuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Enfermedad" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

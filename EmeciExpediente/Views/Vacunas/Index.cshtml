@@ -1,0 +1,200 @@
+﻿@model EmeciExpediente.Models.VaccinesModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 title-content">
+        <h1>Tabla de Inmunizaciones</h1>
+        <p>
+            Es muy importante aplicar las vacunas en las fechas que se indica ya
+            que as&iacute; se puede prevenir correctamente la enfermedad.
+        </p>
+    </div>
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="container-fluid no-padding">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <strong>Vacuna</strong>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">
+                                                        <strong>Enfermedad que previene</strong>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">
+                                                        <strong>Dosis</strong>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">
+                                                        <strong>Edad</strong>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">
+                                                        <strong>Fecha de vacunaci&oacute;n</strong>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ 
+                                                string Color = string.Empty;
+                                                int PrevIndex = -1;
+                                                int Count = 0;
+                                            }
+
+                                            @foreach (dynamic v in Model.LVaccines)
+                                            {
+                                                Count++;
+                                                if (PrevIndex == -1)
+                                                {
+                                                    PrevIndex = (int)v.Index;
+                                                }
+
+                                                if ((int)v.Index != PrevIndex)
+                                                {
+                                                    <tr id="row_@PrevIndex" style="background-color:@Color">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <a class="btn" onclick="AddRow(@PrevIndex)">Agregar otra</a>
+                                                        </td>
+                                                    </tr>
+                                                    PrevIndex = (int)v.Index;
+                                                }
+
+                                                switch ((int)v.Index)
+                                                {
+                                                    case 0: Color = "#e5fff7"; break;
+                                                    case 1: Color = "#ffeecc"; break;
+                                                    case 2: Color = "#edffe5"; break;
+                                                    case 3: Color = "#ebe5ff"; break;
+                                                    case 4: Color = "#c2ffa8"; break;
+                                                    case 5: Color = "#e5ffff"; break;
+                                                    case 6: Color = "#ffffe5"; break;
+                                                    case 7: Color = "#fff2e5"; break;
+                                                    case 8: Color = "#ffe5e5"; break;
+                                                    case 9: Color = "#d9ffb3"; break;
+                                                }
+
+                                                <tr class="vacc_@v.Index" style="background-color:@Color">
+                                                    @if (v.Name != string.Empty)
+                                                    {
+                                                        <td class="rowspan_@v.Index" rowspan="@v.RowsPan">
+                                                            <strong>@v.Name</strong>
+                                                        </td>
+                                                    }
+                                                    @if (v.Sickness != string.Empty)
+                                                    {
+                                                        <td class="rowspan_@v.Index" rowspan="@v.RowsPan">
+                                                            <div class="text-center">@v.Sickness</div>
+                                                        </td>
+                                                    }
+                                                    <td>
+                                                        <div class="text-center">@v.Dose</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">@v.Age</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <input type="text" value="@v.Date" readonly class="form-control calendar" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                if (Count == Model.LVaccines.Count)
+                                                {
+                                                    <tr id="row_@v.Index" style="background-color:@Color">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <a class="btn" onclick="AddRow(@v.Index)">Agregar otra</a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                            <tr>
+                                                <td colspan="5">
+                                                    <div>Agregar otra</div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function SetPikaDay(elm)
+    {
+        var picker = new Pikaday({
+            field: elm
+            , onSelect: function (e) {
+                picker.destroy();
+            }
+        })
+        picker.show();
+    }
+
+    $(function () {
+        $('.calendar').each(function (c) {
+            var picker = new Pikaday({
+                field: this
+            })
+        })
+    });
+
+    function RowsPans(Index)
+    {
+        var All = $('* .vacc_' + Index).length + 1;
+        $('* .rowspan_' + Index).attr('rowspan', All);
+    }
+
+
+    function AddRow(index)
+    {
+        var TR = $('#row_' + index).prev();
+
+        var row = '<tr class="vacc_' + index + '" style="' + TR.attr('style') + '"> \
+                        <td> \
+                            <div class="text-center"> \
+                                <input type="text" class="form-control" /> \
+                            </div> \
+                        </td> \
+                        <td> \
+                            <div class="text-center"> \
+                                <input type="text" class="form-control" /> \
+                            </div> \
+                        </td> \
+                        <td> \
+                            <div class="text-center"> \
+                                <input type="text" class="form-control" onclick="SetPikaDay(this);" readonly /> \
+                            </div> \
+                        </td> \
+                   </tr>';
+
+        TR.after(row);
+        RowsPans(index);
+    }
+</script>

@@ -1,0 +1,24 @@
+﻿@model EmeciExpediente.Models.ImagesAppModel
+
+<div class="sub-menu">
+    <ul class="nav nav-pills">
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.generales ? "active" : "")">
+            <a href="~/Images/Generales" class="nav-link">Generales</a>
+        </li>
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.recetas ? "active" : "")">
+            <a href="~/Images/Recetas" class="nav-link">Recetas</a>
+        </li>
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.laboratorio ? "active" : "")">
+            <a href="~/Images/Laboratorio" class="nav-link">Estudios de laboratorio</a>
+        </li>
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.diagnosticos ? "active" : "")">
+            <a href="~/Images/Diagnosticos" class="nav-link">Diagnosticos</a>
+        </li>
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.medicamentos ? "active" : "")">
+            <a href="~/Images/Medicamentos" class="nav-link">Medicamentos</a>
+        </li>
+        <li class="nav-item @(Model.Category == EmeciExpediente.Models.ImagesAppModel.TypeGallery.vacunas ? "active" : "")">
+            <a href="~/Images/Vacunas" class="nav-link">Otros estudios</a>
+        </li>
+    </ul>
+</div>

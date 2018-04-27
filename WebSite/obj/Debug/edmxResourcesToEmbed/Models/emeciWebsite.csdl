@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="emeciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="viewMedicos">
+    <Key>
+      <PropertyRef Name="Idmedico" />
+      <PropertyRef Name="codigopostal" />
+      <PropertyRef Name="NoExt" />
+    </Key>
+    <Property Name="Idmedico" Type="Int32" Nullable="false" />
+    <Property Name="CedulaProfesional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CedulaEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CertCMCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PediatraPlus" Type="Byte" />
+    <Property Name="NoRegSSA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DomicilioConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="codigopostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoExt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Domicilio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Colonia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoCel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FechaRenovacion" Type="DateTime" Precision="0" />
+    <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="idciudad" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="emeciEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="viewMedicos" EntityType="Self.viewMedicos" />
+    <EntitySet Name="Ciudades" EntityType="emeciModel.Ciudades" />
+    <EntitySet Name="Estados" EntityType="emeciModel.Estados" />
+    <EntitySet Name="viewMedico" EntityType="emeciModel.viewMedico" />
+  </EntityContainer>
+  <EntityType Name="Ciudades">
+    <Key>
+      <PropertyRef Name="idciudad" />
+    </Key>
+    <Property Name="idciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idEstado" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="idEstado" />
+      <PropertyRef Name="IdPais" />
+    </Key>
+    <Property Name="idEstado" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdPais" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="viewMedico">
+    <Key>
+      <PropertyRef Name="idmedico" />
+    </Key>
+    <Property Name="idmedico" Type="Int32" Nullable="false" />
+    <Property Name="AgrupacionLocal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgrupacionNacional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CedulaEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CedulaProfesional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DomicilioConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalResidenciaPediatra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoRegSSA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PediatraPlus" Type="Byte" />
+    <Property Name="UniversidadEspecialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CertCMCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoConsultorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Colonia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Domicilio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NoExt" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoCel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TipoPediatra" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,72 @@
+.section {
+
+
+  .section-header,
+  .section-footer {
+
+
+
+
+    position: relative;
+    padding: 15px 30px;
+    background-color: #ee4f9c;
+
+    .description {
+      padding-right: 250px;
+    }
+
+
+    .section-controls {
+      position: absolute;
+      right: 30px;
+      top: 40px;
+    }
+
+    .btn {
+      border-radius: 20px;
+      border: 0;
+      padding: 8px 16px;
+      margin: 0 4px;
+    }
+
+    .btn-default {
+      background-color: #222;
+      color: #fff
+    }
+
+
+  }
+
+  .section-body {
+
+    padding: 15px 30px;
+    margin-bottom: 60px;
+
+  }
+
+
+}
+
+
+
+@media only screen
+  and (max-device-width : 820px) {
+
+  .section-controls {
+    position: fixed !important;
+    z-index: 999;
+    background-color: rgba(255,255,255,0.80);
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto !important;
+    padding: 20px;
+    border-top:1px solid #cccccc;
+  }
+
+  .description {
+    padding-right: 0 !important;
+  }
+
+}

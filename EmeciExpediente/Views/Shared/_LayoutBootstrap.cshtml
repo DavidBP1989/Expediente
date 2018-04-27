@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EMECI</title>
+    <link href="~/content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Emeci.css" rel="stylesheet" />
+    <link href="~/Scripts/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" rel="stylesheet" />
+    <link href="~/Content/pikaday.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="~/Scripts/ValidateForm.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/pikaday.js"></script>
+    <script src="~/Scripts/EMECI/Header.js"></script>
+    <script src="~/Scripts/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script src="~/Scripts/waitingfor.js"></script>
+    <script>
+        $(function () {
+            var PatientSex = '@ViewBag.Header_PatientSex';
+            var PatientAge = '@ViewBag.Header_PatientAge';
+
+            InitPage(PatientSex, PatientAge);
+
+            $(".fancybox").fancybox({
+                beforeShow: function ()
+                {
+                    if (this.title)
+                    {
+                        this.title = '<a class="btn" onclick=DeleteImage("' + encodeURIComponent(this.title.split('|')[0]) + '","' + this.title.split("|")[2] + '")>Eliminar</a> \
+                                  <p style="float:right">' + this.title.split("|")[1] + '</p>';                    
+                    }
+                }
+            , helpers: {
+                title: { type: 'inside' }
+                , buttons: {}
+            }
+            , beforeLoad: function ()
+            {
+                var Ext = '';
+                if (this.title)
+                {
+                    Ext = encodeURIComponent(this.title.split('|')[0]);
+                    Ext = Ext.split('.')[1];
+                    if (Ext.toLowerCase() === 'pdf')
+                        this.type = 'iframe';
+                }
+                
+            }
+            , arrows: false
+            , closeBtn: true
+            });
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 top-bar">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="mailto:soporte@emeci.com">Soporte</a>
+                        </li>
+                        <li class="_div"></li>
+                        <li>
+                            <a href="@Url.Action("", "")">
+                                <i class="glyphicon glyphicon-lock"></i> Cerrar expediente
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row bottom-bar">
+                <div class="col-lg-6 col-md-6 col-sm-6 no-padding">
+                    <a>
+                        <img class="header_logo" src="~/images/logo-emeci.png" />
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="row infoheader">
+                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 text-right">
+                            <div class="header_patientname">@ViewBag.Header_PatientName</div>
+
+                            <a href="@Url.Action("ChangePassword", "LogIn")" class="update-password">
+                                <i class="glyphicon glyphicon-zoom-in"></i>
+                                Cambiar Contrase&ntilde;a
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-left">
+                            <a href="#" data-toggle="modal" data-target="#change_Img" id="show_modalImg">
+                                <img src="@ViewBag.ImagePerfil.Href" class="userPhoto" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 main-menu">
+                    <div class="navbar">
+                        <ul class="nav navbar-nav text-center">
+                            <li>
+                                <a href="~/Expedient/Summary">
+                                    <span class="icon resumen"></span>
+                                    <span class="title">Resumen</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/GeneralInfo">
+                                    <span class="icon generales"></span>
+                                    <span class="title">Generales</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/Consultation">
+                                    <span class="icon consultas"></span>
+                                    <span class="title">Consultas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/DataBirth">
+                                    <span class="icon nacimiento"></span>
+                                    <span class="title">Nacimiento</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Antecedent/Pathological">
+                                    <span class="icon antecedentes"></span>
+                                    <span class="title">Antecedentes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/Vaccines">
+                                    <span class="icon vacunas"></span>
+                                    <span class="title">Vacunas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/Studies">
+                                    <span class="icon estudios"></span>
+                                    <span class="title">Estudios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Images/Studies">
+                                    <span class="icon imagenes"></span>
+                                    <span class="title">Im&aacute;genes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Expedient/OtherQueries">
+                                    <span class="icon otras-consultas"></span>
+                                    <span class="title">Otras consultas</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="change_Img" tabindex="-1" role="dialog" aria-labelledby="change_Img" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Cambiar Imagen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <img src="@ViewBag.ImagePerfil.Href" style="width:60px; height:60px;" class="photo" />
+                        </div>
+                        <div class="col-lg-9 col-md-3 col-sm-3 col-xs-3">
+                            <p id="txtImg">
+                                Seleccione una imagen
+                            </p>
+                            @Html.TextBox("ImagePerfil", null, new { @type = "file" })
+                            <p id="ErrorMaxImage" style="display:none; color:red">
+                                <br />
+                                El tama&ntilde;o de la imagen no puede ser mayor a 2 MB
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="ChangeImagePerfil()" class="btn btn-primary">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

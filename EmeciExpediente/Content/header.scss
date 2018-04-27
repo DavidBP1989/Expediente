@@ -1,0 +1,149 @@
+
+
+
+
+.app-header {
+
+  background-color: $page-header-bg ;
+  position: relative;
+
+  /**
+   * Top bar
+   * Incluye enlaces  en color blanco y fondo en color primario.
+   */
+
+  .top-bar {
+    background-color: $primary;
+    text-align: right;
+
+
+    .menu-toggle {
+      position: absolute;
+      font-size: 26px;
+      top: 0;
+      padding: 0 5px;
+      display: none;
+    }
+
+
+    li {
+      vertical-align: middle;
+    }
+
+    li.divisor {
+      border-left: 1px solid rgba(0, 0, 0, 0.10);
+      min-height: 30px;
+    }
+
+    a {
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 2px;
+      display: block;
+    }
+
+  }
+
+
+  .page-header {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 100px;
+
+
+
+    .logo,
+    .user-info {
+      display: inline-block;
+    }
+
+
+    .logo {
+      top: 8px;
+      left: 15px;
+      position: absolute;
+    }
+
+
+    // Informacion de usuario actual.
+    .user-info {
+      top: 8px;
+      right: 15px;
+      left: 15px;
+      text-align: right;
+      position: absolute;
+      padding-top: 10px;
+
+
+      .photo {
+        position: absolute;
+        right: 10px;
+        top: 0px
+
+      }
+
+      .full-name,
+      .update-password {
+        margin-right: 95px;
+      }
+
+
+      .full-name {
+        font-size: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+
+    }
+
+
+  }
+
+}
+
+
+@media only screen
+and (max-device-width : 820px) {
+
+  .app-header {
+
+
+
+    .top-bar {
+
+      // Mostramos el boton de menu.
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .page-header {
+
+      // Ocultamos el logo EMECI.
+      .logo {
+        display: none !important;
+      }
+    }
+  }
+
+
+
+  .user-info {
+
+
+    text-align: left !important;
+
+    .full-name {
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+  }
+
+
+}
