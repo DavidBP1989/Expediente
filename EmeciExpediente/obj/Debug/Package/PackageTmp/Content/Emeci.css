@@ -1,0 +1,244 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic);
+
+body
+{
+	background-color: #f0f0f0;
+  	font-family: 'Source Sans Pro', sans-serif;
+  	font-size: 14px;
+  	font-weight: 300;
+}
+
+header
+{
+	background-color: #fff;
+}
+
+header .top-bar
+{
+	background-color: #ee4f9c;
+	text-align: right;
+	padding: 0;
+}
+
+header ul
+{
+	margin: 0;
+}
+
+header ul li
+{
+	vertical-align: middle;
+}
+
+header .header_patientname
+{
+	font-size: 24px;
+}
+
+header .infoheader
+{
+	margin-top: 8px;
+	padding-top: 10px;
+}
+
+.top-bar a
+{
+	font-size: 13px;
+	display: block;
+	color: #fff;
+	padding: 8px 2px;
+}
+
+.top-bar ._div
+{
+	min-height: 30px;
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.userPhoto
+{
+	width: 60px;
+	height: 60px;
+	margin-top: -8px;
+}
+
+.header_logo
+{
+	margin-top: 8px;
+}
+
+.bottom-bar
+{
+	margin-top: 10px;
+	min-height: 100px;
+}
+
+.bottom-bar .header_logo
+{
+	margin-top: 8px;
+	margin-left: 15px;
+}
+
+.no-padding
+{
+	padding: 0;
+}
+
+.main-menu
+{
+	background-color: #1c5a9e;
+	width: 120px;
+	padding: 20px 0;
+}
+.main-menu ul
+{
+	float: none;
+	margin: 0 auto;
+}
+
+.main-menu ul li
+{
+	float: none;
+	margin: 0 0 15px;
+
+}
+.main-menu ul li a
+{
+	padding: 0;
+}
+
+.main-menu ul li .icon
+{
+	display: block;
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+}
+
+.main-menu  .title
+{
+	color: #bfe6ff;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.main-menu .icon.resumen
+{
+	background-image: url("../images/icono-resumen.png");
+}
+.main-menu .icon.generales
+{
+	background-image: url("../images/icono-generales.png");
+}
+.main-menu .icon.consultas
+{
+	background-image: url("../images/icono-consultas.png");
+}
+.main-menu .icon.nacimiento
+{
+	background-image: url("../images/icono-nacimiento.png");
+}
+.main-menu .icon.antecedentes
+{
+	background-image: url("../images/icono-antecedentes.png");
+}
+.main-menu .icon.vacunas
+{
+	background-image: url("../images/icono-vacunas.png");
+}
+.main-menu .icon.estudios
+{
+	background-image: url("../images/icono-estudios.png");
+}
+.main-menu .icon.imagenes
+{
+	background-image: url("../images/icono-imagenes.png");
+}
+.main-menu .icon.otras-consultas
+{
+	background-image: url("../images/icono-otras-consultas.png");
+}
+
+@media (max-width: 768px)
+{
+
+  .main-menu
+  {
+  	width: -webkit-fill-available;
+  }
+  .main-menu .navbar
+  {
+  	margin-bottom: 0px;
+  }
+  .main-menu li
+  {
+    text-align: center;
+    display: inline-block;
+    padding: 7px;
+  }
+
+  .main-content
+  {
+  	width: -webkit-fill-available !important;
+  }
+}
+
+.title-content
+{
+	background-color: rgb(168, 237, 255);
+	padding: 15px 30px;
+}
+
+.main-content
+{
+	width: calc(100% - 120px);
+	color:#fff;
+}
+
+.panel-body
+{
+	color:black;
+}
+
+.main-content h1
+{
+	font-weight: 300;
+	margin: 0 auto;
+}
+
+.sub-menu
+{
+	padding: 30px 30px 20px;
+}
+
+.sub-menu li a
+{
+	font-size: 16px;
+	font-weight: 800;
+}
+
+.sub-menu li.active a
+{
+	background-color: #1c5a9e;
+}
+.content-panel
+{
+	padding: 15px 30px;
+}
+
+.panel
+{
+	background-color: #f8f8f8;
+}
+
+.panel-title
+{
+	color: #ee4f9c;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 600;
+}

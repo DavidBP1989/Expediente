@@ -1,0 +1,72 @@
+
+// Google fonts import.
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic);
+
+// css modules
+@import "vars";
+@import "header";
+@import "main-tabs";
+@import "section";
+@import "panels";
+@import "forms";
+@import "tables";
+
+
+
+body {
+  background-color: $body-bg ;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+.app-container {
+
+  display: flex;
+
+  .main-container {
+    background-color: $body-bg;
+    flex-grow: 1;
+  }
+
+}
+
+
+.section-header {
+
+  background-color: $primary;
+  color: #fff;
+
+
+  h1 {
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .description {
+
+  }
+
+}
+
+
+@media only screen
+and (max-device-width : 820px) {
+
+
+  .app-container {
+
+    .main-container {
+      background-color: $body-bg;
+      margin-left: 0px;
+      width: 100%;
+    }
+
+  }
+
+}
+
+
+
+

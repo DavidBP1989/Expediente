@@ -1,0 +1,233 @@
+﻿
+@{
+    ViewBag.Title = "Ginecologicos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/Scripts/Antecedent/Ginecologico.js");
+}
+<style>
+    .nav li a {font-size: 13px !important;}
+</style>
+
+@model ModelGinecologicos
+@using (Html.BeginForm("Ginecologicos", "Antecedent", FormMethod.Post, new { @id = "formGine" }))
+{
+    <div class="section-header">
+        <h1>Antecedentes</h1>
+        <p class="description">
+            Esta informaci&oacute;n puede ser actualizada cada vez que sea necesario
+            para as&iacute; mantener al d&iacute;a el expediente.
+        </p>
+        <div class="section-controls">
+            <a onclick="Post();" class="btn btn-primary">Guardar Cambios</a>
+        </div>
+    </div>
+    <div class="sub-menu">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="~/Antecedent/Pathological" class="nav-link">Antecedentes Patalogicos</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/Antecedent/Heredofamiliares" class="nav-link">Antecedentes Heredofamiliares</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Antecedentes Ginecol&oacute;gicos</a>
+            </li>
+            @if ((bool)ViewBag.showObstetrica_Ginecologia)
+            {
+                <li class="nav-item">
+                    <a href="~/Antecedent/Obstetricos" class="nav-link">Antecedentes Obst&eacute;tricos</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Antecedentes Ginecol&oacute;gicos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.menarca, "Menarca (Edad en años de la primera menstruación)")
+                            @Html.TextBoxFor(x => x.menarca, null, new { @class = "form-control numbersOnly" })
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.menacmia, "Menacmia (Días entre menstruación y menstruación/días de sangrado)")
+                            @Html.TextBoxFor(x => x.menacmia, null, new { @class = "form-control numbersOnly" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.relacion, "Edad en años de la primera relación sexual")
+                            @Html.TextBoxFor(x => x.relacion, null, new { @class = "form-control numbersOnly" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.lastPapanicolaou, "Ultimo papanicolaou")
+                            @Html.TextBoxFor(x => x.lastPapanicolaou, null, new { @class = "form-control calendar", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.nextPapanicolaou, "Proximo papanicolaou")
+                            @Html.TextBoxFor(x => x.nextPapanicolaou, null, new { @class = "form-control calendar", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.studies, "Estudios ginecológicos realizados previos (mencione)")
+                            @Html.TextBoxFor(x => x.studies, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.dispareunia, Model.dispareunia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Dispareunia / Dolor en relaci&oacute;n sexual
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.leucorrea, Model.leucorrea)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Leucorrea / Salida de secreci&oacute;n transvaginal
+                                </label>
+                            </div>
+                        </div>
+                        <div id="cnt_leucorrea" class="col-md-8">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.leucorreaTxt, null, new { @class = "form-control", @placeholder = "Mecione color y aspecto" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.lactorrea, Model.lactorrea)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Lactorrea / Salida de leche en glandulas mamarias
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.sickness, Model.sickness)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    Enfermedades de &uacute;tero, ovarios, trompas de falopio, mamas, genitales, vagina, etc.
+                                </label>
+                            </div>
+                            <div id="cnt_sickness" class="form-group">
+                                @Html.TextAreaFor(x => x.sicknessTxt, new { @class = "form-control", @cols = "30", @rows = "5" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.mamografia, Model.mamografia)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    ¿Se ha realizado alg&uacute;na mamografia?
+                                </label>
+                            </div>
+                        </div>
+                        <div id="cnt_mamografia" class="col-md-4">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.dateMamografia, null, new { @class = "form-control calendar", @placeholder = "Fecha de mamografia", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div id="cnt_mamografia" class="col-md-4">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.nextMamografia, null, new { @class = "form-control calendar", @placeholder = "Proxima mamografia", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label class="glyphi">
+                                    @Html.CheckBoxFor(x => x.spQuirurgico, Model.spQuirurgico)
+                                    <span class="cr">
+                                        <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    ¿Se ha sometido a alg&uacute;n procedimiento quir&uacute;rgico ginecol&oacute;gico?
+                                </label>
+                            </div>
+                            <div id="cnt_spQuirurgico" class="form-group">
+                                @Html.LabelFor(x => x.spQuirurgicoTxt, "Mencione el procedimiento que se realizó y motivo del mismo.")
+                                @Html.TextAreaFor(x => x.spQuirurgicoTxt, new { @class = "form-control", @cols = "30", @rows = "5" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.observations, "Observaciones que usted crea relevantes")
+                            @Html.TextAreaFor(x => x.observations, new { @class = "form-control", @cols = "30", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-toggle="modal" data-target="#dpathologia" id="showModal"></a>
+    <div class="modal fade" id="dpathologia" tabindex="-1" role="dialog" aria-labelledby="dpathologia" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Antecedentes Ginecol&oacute;gicos</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        Init();
+
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack)
+            $('#showModal').trigger('click', function(){});
+    })
+</script>

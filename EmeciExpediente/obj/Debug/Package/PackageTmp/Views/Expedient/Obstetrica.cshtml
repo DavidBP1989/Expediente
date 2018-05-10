@@ -1,0 +1,559 @@
+﻿
+@{
+    ViewBag.Title = "Obstetrica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Historial de consultas</h1>
+    <p class="description">
+        Seleccione la fecha correspondiente a la consulta que desea ver.
+    </p>
+</div>
+<div class="sub-menu">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="~/Expedient/Consultation" class="nav-link">General</a>
+        </li>
+        <li class="nav-item">
+            <a href="~/Expedient/Gynecological" class="nav-link">Ginecolog&iacute;ca</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link">Obst&eacute;trica</a>
+        </li>
+    </ul>
+</div>
+
+<div class="section-body">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">calendario de consultas</h3>
+        </div>
+        @using (Html.BeginForm("Obstetrica", "Expedient", FormMethod.Post, new { @id = "QueryForm" }))
+        {
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.Label("date", "Seleccione la fecha de la consulta")
+                        @Html.DropDownList("date", ViewBag.consultation as IEnumerable<SelectListItem>, new { @class = "form-control", @onchange = "Send();" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Detalles de la consulta obstretica</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("noEmbarazo", "# Embarazo")
+                        @Html.DropDownList("noEmbarazo", new List<SelectListItem> {
+                            new SelectListItem { Text = "1", Value = "0" },
+                            new SelectListItem { Text = "2", Value = "1" },
+                            new SelectListItem { Text = "3", Value = "2" },
+                            new SelectListItem { Text = "4", Value = "3" },
+                            new SelectListItem { Text = "5", Value = "4" },
+                            new SelectListItem { Text = "6", Value = "5" },
+                            new SelectListItem { Text = "7", Value = "6" },
+                            new SelectListItem { Text = "8", Value = "7" },
+                            new SelectListItem { Text = "9", Value = "8" },
+                            new SelectListItem { Text = "10", Value = "9" },
+                            new SelectListItem { Text = "11", Value = "10" },
+                            new SelectListItem { Text = "12", Value = "11" },
+                            new SelectListItem { Text = "13", Value = "12" },
+                            new SelectListItem { Text = "14", Value = "13" },
+                            new SelectListItem { Text = "15", Value = "14" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("peso", "Peso (Kilos)")
+                        @Html.TextBox("peso", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("altura", "Talla (Metros)")
+                        @Html.TextBox("altura", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("masa", "Indice masa corporal")
+                        @Html.TextBox("masa", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3 col-sm-12 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("activaSexualmente", "Activa sexualmente")
+                        @Html.DropDownList("activaSexualmente", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("temperature", "Temperatura (ºC)")
+                        @Html.TextBox("temperature", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("sistolica", "Pres. Arterial Sistólica")
+                        @Html.TextBox("sistolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("diastolica", "Pres. Arterial Diastólica")
+                        @Html.TextBox("diastolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("abortos", "Abortos")
+                        @Html.DropDownList("abortos", new List<SelectListItem> {
+                            new SelectListItem { Text = "0", Value = "0" },
+                            new SelectListItem { Text = "1", Value = "1" },
+                            new SelectListItem { Text = "2", Value = "2" },
+                            new SelectListItem { Text = "3", Value = "3" },
+                            new SelectListItem { Text = "4", Value = "4" },
+                            new SelectListItem { Text = "5", Value = "5" },
+                            new SelectListItem { Text = "6", Value = "6" },
+                            new SelectListItem { Text = "7", Value = "7" },
+                            new SelectListItem { Text = "8", Value = "8" },
+                            new SelectListItem { Text = "9", Value = "9" },
+                            new SelectListItem { Text = "10", Value = "10" },
+                            new SelectListItem { Text = "11", Value = "11" },
+                            new SelectListItem { Text = "12", Value = "12" },
+                            new SelectListItem { Text = "13", Value = "13" },
+                            new SelectListItem { Text = "14", Value = "14" },
+                            new SelectListItem { Text = "15", Value = "15" }
+                           }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("ultimaParto", "Fecha último parto")
+                        @Html.TextBox("ultimaParto", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("ultimaMenstruacion", "Primer día últ. menstruación")
+                        @Html.TextBox("ultimaMenstruacion", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("toxemias", "Toxemias previas")
+                        @Html.DropDownList("toxemias", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="well" style="display:@(ViewBag.toxemias == 1 ? "block" : "none")">
+                            @Html.Label("expToxemias", "Observaciones")
+                            @Html.TextArea("expToxemias", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+                    <div class="form-group">
+                        @Html.Label("partos", "Partos")
+                        @Html.DropDownList("partos", new List<SelectListItem> {
+                            new SelectListItem { Text = "Eutócico", Value = "0" },
+                            new SelectListItem { Text = "Distocico", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly", @style = "width:250px" })
+                        <div class="well" style="display:@(ViewBag.partos == 1 ? "block": "none")">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        @Html.Label("tipoDistocia", "Tipo de distocia")
+                                        @Html.DropDownList("tipoDistocia", new List<SelectListItem> {
+                                            new SelectListItem { Text = "Cesárea", Value = "0" },
+                                            new SelectListItem { Text = "Fórceps", Value = "1" },
+                                            new SelectListItem { Text = "Otros -->", Value = "2" }
+                                        }, new { @class = "form-control", @readonly = "readonly" })
+                                        <div style="display:@(ViewBag.tipoDistocia == 2 ? "block" : "none")">
+                                            @Html.Label("espTipoDistocia", "Especifique")
+                                            @Html.TextArea("espTipoDistocia", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        @Html.Label("motivoDistocia", "Motivo de la distocia")
+                                        @Html.DropDownList("motivoDistocia", new List<SelectListItem> {
+                                            new SelectListItem { Text = "Sufrimiento fetal agudo", Value = "0" },
+                                            new SelectListItem { Text = "Postura anómala", Value = "1" },
+                                            new SelectListItem { Text = "Prematurez", Value = "2" },
+                                            new SelectListItem { Text = "Otros -->", Value = "3" }
+                                        }, new { @class = "form-control", @readonly = "readonly" })
+                                        <div style="display:@(ViewBag.motivoDistocia == 3 ? "block" : "none")">
+                                            @Html.Label("espMotivoDistocia", "Especifique")
+                                            @Html.TextArea("espMotivoDistocia", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("cesarea", "Cesáreas previas")
+                        @Html.DropDownList("cesarea", new List<SelectListItem> {
+                            new SelectListItem { Text = "0", Value = "0" },
+                            new SelectListItem { Text = "1", Value = "1" },
+                            new SelectListItem { Text = "2", Value = "2" },
+                            new SelectListItem { Text = "3", Value = "3" },
+                            new SelectListItem { Text = "4", Value = "4" },
+                            new SelectListItem { Text = "5", Value = "5" },
+                            new SelectListItem { Text = "6", Value = "6" },
+                            new SelectListItem { Text = "7", Value = "7" },
+                            new SelectListItem { Text = "8", Value = "8" },
+                            new SelectListItem { Text = "9", Value = "9" },
+                            new SelectListItem { Text = "10", Value = "10" },
+                            new SelectListItem { Text = "11", Value = "11" },
+                            new SelectListItem { Text = "12", Value = "12" },
+                            new SelectListItem { Text = "13", Value = "13" },
+                            new SelectListItem { Text = "14", Value = "14" },
+                            new SelectListItem { Text = "15", Value = "15" }
+                           }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("forceps", "Uso de forceps")
+                        @Html.DropDownList("forceps", new List<SelectListItem> {
+                            new SelectListItem { Text = "0", Value = "0" },
+                            new SelectListItem { Text = "1", Value = "1" },
+                            new SelectListItem { Text = "2", Value = "2" },
+                            new SelectListItem { Text = "3", Value = "3" },
+                            new SelectListItem { Text = "4", Value = "4" },
+                            new SelectListItem { Text = "5", Value = "5" },
+                            new SelectListItem { Text = "6", Value = "6" },
+                            new SelectListItem { Text = "7", Value = "7" },
+                            new SelectListItem { Text = "8", Value = "8" },
+                            new SelectListItem { Text = "9", Value = "9" },
+                            new SelectListItem { Text = "10", Value = "10" },
+                            new SelectListItem { Text = "11", Value = "11" },
+                            new SelectListItem { Text = "12", Value = "12" },
+                            new SelectListItem { Text = "13", Value = "13" },
+                            new SelectListItem { Text = "14", Value = "14" },
+                            new SelectListItem { Text = "15", Value = "15" }
+                           }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("mortinatos", "Mortinatos")
+                        @Html.DropDownList("mortinatos", new List<SelectListItem> {
+                            new SelectListItem { Text = "0", Value = "0" },
+                            new SelectListItem { Text = "1", Value = "1" },
+                            new SelectListItem { Text = "2", Value = "2" },
+                            new SelectListItem { Text = "3", Value = "3" },
+                            new SelectListItem { Text = "4", Value = "4" },
+                            new SelectListItem { Text = "5", Value = "5" },
+                            new SelectListItem { Text = "6", Value = "6" },
+                            new SelectListItem { Text = "7", Value = "7" },
+                            new SelectListItem { Text = "8", Value = "8" },
+                            new SelectListItem { Text = "9", Value = "9" },
+                            new SelectListItem { Text = "10", Value = "10" },
+                            new SelectListItem { Text = "11", Value = "11" },
+                            new SelectListItem { Text = "12", Value = "12" },
+                            new SelectListItem { Text = "13", Value = "13" },
+                            new SelectListItem { Text = "14", Value = "14" },
+                            new SelectListItem { Text = "15", Value = "15" }
+                           }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("rnvivos", "R.N. Vivos")
+                        @Html.DropDownList("rnvivos", new List<SelectListItem> {
+                            new SelectListItem { Text = "0", Value = "0" },
+                            new SelectListItem { Text = "1", Value = "1" },
+                            new SelectListItem { Text = "2", Value = "2" },
+                            new SelectListItem { Text = "3", Value = "3" },
+                            new SelectListItem { Text = "4", Value = "4" },
+                            new SelectListItem { Text = "5", Value = "5" },
+                            new SelectListItem { Text = "6", Value = "6" },
+                            new SelectListItem { Text = "7", Value = "7" },
+                            new SelectListItem { Text = "8", Value = "8" },
+                            new SelectListItem { Text = "9", Value = "9" },
+                            new SelectListItem { Text = "10", Value = "10" },
+                            new SelectListItem { Text = "11", Value = "11" },
+                            new SelectListItem { Text = "12", Value = "12" },
+                            new SelectListItem { Text = "13", Value = "13" },
+                            new SelectListItem { Text = "14", Value = "14" },
+                            new SelectListItem { Text = "15", Value = "15" }
+                           }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("ectopico", "Embarazos ectópicos")
+                        @Html.DropDownList("ectopico", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="well" style="display:@(ViewBag.ectopico == 1 ? "block" : "none")">
+                            @Html.Label("espEctopico", "Especifique")
+                            @Html.TextArea("espEctopico", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("embarazosPrevios", "Complicaciones de embarazos previos")
+                        @Html.DropDownList("embarazosPrevios", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="well" style="display:@(ViewBag.embarazosPrevios == 1 ? "block" : "none")">
+                            @Html.Label("espEmbarazosPrevios", "Especifique")
+                            @Html.TextArea("espEmbarazosPrevios", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("perinatales", "Complicaciones perinatales")
+                        @Html.DropDownList("perinatales", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="well" style="display:@(ViewBag.perinatales == 1 ? "block" : "none")">
+                            @Html.Label("espPerinatales", "Especifique")
+                            @Html.TextArea("espPerinatales", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("anormales", "Embarazos anormales: Mola H, anembriónicos, etc.")
+                        @Html.DropDownList("anormales", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="well" style="display:@(ViewBag.anormales == 1 ? "block" : "none")">
+                            @Html.Label("espAnormales", "Especifique")
+                            @Html.TextArea("espAnormales", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        @Html.Label("observaciones", "Observaciones")
+                        @Html.TextArea("observaciones", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-heading">
+            <h3 class="panel-title">Control de embarazo</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 n10">
+                    <div class="form-group">
+                        @Html.Label("gestacion", "Semanas de gestación s/d")
+                        @Html.TextBox("gestacion", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 n10">
+                    <div class="form-group">
+                        @Html.Label("fechaParto", "Fecha probable de parto")
+                        @Html.TextBox("fechaParto", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-6 n-10"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("fu", "F.U. (cm)")
+                        @Html.TextBox("fu", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("fcf", "F.C.F.")
+                        @Html.TextBox("fcf", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("cc", "C.C.")
+                        @Html.TextBox("cc", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("ca", "C.A.")
+                        @Html.TextBox("ca", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("lf", "L.F.")
+                        @Html.TextBox("lf", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        @Html.Label("dbp", "D.B.P.")
+                        @Html.TextBox("dbp", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("posicion", "Posición")
+                        @Html.TextBox("posicion", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("presentacion", "Presentación")
+                        @Html.TextBox("presentacion", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("situacion", "Situación")
+                        @Html.TextBox("situacion", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        @Html.Label("actitud", "Actitud")
+                        @Html.TextBox("actitud", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 n11">
+                    <div class="form-group">
+                        @Html.Label("fetales", "Movimientos fetales")
+                        @Html.TextBox("fetales", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 n13">
+                    <div class="form-group">
+                        @Html.Label("pesoProducto", "Peso aproximado producto")
+                        @Html.TextBox("pesoProducto", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 n11">
+                    <div class="form-group">
+                        @Html.Label("pesoMadre", "Peso de la madre")
+                        @Html.TextBox("pesoMadre", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 n14">
+                    <div class="form-group">
+                        @Html.Label("ta", "T/A")
+                        @Html.TextBox("ta", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 n12">
+                    <div class="form-group">
+                        @Html.Label("fcm", "F.C.M.")
+                        @Html.TextBox("fcm", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 n12">
+                    <div class="form-group">
+                        @Html.Label("edema", "Edema")
+                        @Html.TextBox("edema", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 n12">
+                    <div class="form-group">
+                        @Html.Label("hizous", "Se hizo US")
+                        @Html.DropDownList("hizous", new List<SelectListItem> {
+                            new SelectListItem { Text = "No", Value = "0" },
+                            new SelectListItem { Text = "Si", Value = "1" }
+                        }, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        @Html.Label("ultrasonido", "Reporte de ultrasonido realizado")
+                        @Html.TextArea("ultrasonido", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        @Html.Label("motivoConsulta", "Motivo de consulta")
+                        @Html.TextArea("motivoConsulta", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        @Html.Label("exploracion", "Exploración física")
+                        @Html.TextArea("exploracion", null, new { @class = "form-control", @rows = "3", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Send()
+    {
+        $('#QueryForm').submit();
+    }
+</script>
+

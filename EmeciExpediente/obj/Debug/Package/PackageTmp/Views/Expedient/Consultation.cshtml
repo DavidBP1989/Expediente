@@ -1,0 +1,207 @@
+﻿
+@{
+    ViewBag.Title = "Consultation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Historial de consultas</h1>
+    <p class="description">
+        Seleccione la fecha correspondiente a la consulta que desea ver.
+    </p>
+</div>
+<div class="sub-menu">
+    <ul class="nav nav-pills">
+        <li class="nav-item active">
+            <a class="nav-link">General</a>
+        </li>
+        @if ((bool)ViewBag.showObstetrica_Ginecologia)
+        {
+            <li class="nav-item">
+                <a href="~/Expedient/Gynecological" class="nav-link">Ginecolog&iacute;ca</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/Expedient/Obstetrica" class="nav-link">Obst&eacute;trica</a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="section-body">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Calendario de consultas</h3>
+        </div>
+        @using (Html.BeginForm("Consultation", "Expedient", FormMethod.Post, new { @id = "QueryForm" }))
+        {
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.Label("date", "Seleccione la fecha de la consulta")
+                        @Html.DropDownList("date", ViewBag.consultation as IEnumerable<SelectListItem>, new { @class = "form-control", @onchange = "Send();" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Detalles de la consulta</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("age", "Edad")
+                        @Html.TextBox("age", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("kilo", "Peso (Kilos)")
+                        @Html.TextBox("kilo", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("meters", "Talla (Metros)")
+                        @Html.TextBox("meters", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("mass", "Indice masa corporal")
+                        @Html.TextBox("mass", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("cefalico", "Perím. Cefálico (Cm)")
+                        @Html.TextBox("cefalico", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("temperature", "Temperatura (ºC)")
+                        @Html.TextBox("temperature", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("sistolica", "Pres. Arterial Sistólica")
+                        @Html.TextBox("sistolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("diastolica", "Pres. Arterial Diastólica")
+                        @Html.TextBox("diastolica", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("reason", "Motivo de la consulta")
+                        @Html.TextArea("reason", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("symptom", "Signos y síntomas relevantes")
+                        @Html.TextArea("symptom", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("preventive", "Medidas preventivas")
+                        @Html.TextArea("preventive", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("diagnosis", "Diagnóstico")
+                        @Html.TextArea("diagnosis", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("treatment", "Tratamiento")
+                        @Html.TextArea("treatment", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.Label("observations", "Observaciones")
+                        @Html.TextArea("observations", null, new { @class = "form-control", @rows = "4", @style = "min-height:100px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Archivos relacionados a consultas</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#modalTreatment">Mostrar tratamientos por fecha</a>
+                </div>
+                @*<div class="col-md-3">
+                    <a href="@Url.Action("Scanning", "Expedient", new { TypeScanning = 0})" class="btn btn-default">Ir a diagnosticos escaneados</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("Scanning", "Expedient", new { TypeScanning = 1})" class="btn btn-default">Ir a recetas escaneadas</a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal: Tratamientos por Fecha -->
+<div class="modal fade" id="modalTreatment" tabindex="-1" role="dialog" aria-labelledby="modalTreatment" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Tratamientos por Fecha</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Tratamiento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var t in (List<dynamic>)ViewBag.treatments)
+                            {
+                                <tr>
+                                    <td>@t.Fecha</td>
+                                    <td><span style="white-space:pre-line">@t.report</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Send()
+    {
+        $('#QueryForm').submit();
+    }
+</script>

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "SecondAccess";
+    Layout = "~/Views/Shared/_LogIn.cshtml";
+}
+
+@model AccessByCoordinate
+@Html.ValidationSummary(true)
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Clave de Acceso (@ViewBag.Coordinate)</label>
+                <div class="form-inline">
+                   @Html.TextBoxFor(x => x.coordinate, null, new { @class = "form-control tarjeta-numero", @id = "clave" })
+                </div>
+            </div>
+            @if (Model.accessDenied)
+            {
+                <span class="alert alert-danger help-block">Clave de acceso invalida.</span>
+            }
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+            <hr />
+            @Html.ActionLink("Recordar Contraseña", "RememberPassword", "LogIn", null, new { @class = "bnt btn-link" })
+            
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        $('#clave').keypress(function (event) {
+            var num = (event.charCode) ? event.which : event.keyCode;
+            return (num == 8 || (num >= 48 && num <= 57));
+        })
+    })
+</script>

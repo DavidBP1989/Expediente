@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "OtherQueries";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("OtherQueries", "Expedient", FormMethod.Post, new { @id = "queryForm" }))
+{
+    <div class="section-header">
+        <h1>Otras consultas</h1>
+        <p class="description">
+            Informaci&oacute;n de atenci&oacute;n medica de la misma u otra especialidad.
+            Incluye al inicial el resumen la fecha de elaboraci&oacute;n
+        </p>
+        <div class="section-controls">
+            <a href="#" class="btn btn-primary" onclick="Post();">Guardar cambios</a>
+        </div>
+    </div>
+    <div class="section-body">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Otras consultas</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.TextArea("query", (string)ViewBag.query,
+                           new { @class = "form-control", @rows = "10", @style = "min-height:250px"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-toggle="modal" data-target="#dquery" id="showModal"></a>
+    <div class="modal fade" id="dquery" tabindex="-1" role="dialog" aria-labelledby="dquery" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Otras consultas</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        ¡Se actualizaron los datos!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function Post()
+    {
+        $('#queryForm').submit();
+    }
+
+
+    $(function () {
+        var postBack = @IsPost.ToString().ToLower();
+        if (postBack){
+            $('#showModal').trigger('click', function(){});
+        }
+    })
+</script>

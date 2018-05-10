@@ -199,3 +199,4 @@
 \\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 \\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\obj\Debug\EmeciExpediente.dll
 \\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\obj\Debug\EmeciExpediente.pdb
+\\Mac\Home\Documents\DAVID-PROYECTOS\EMECI\ExpedienteMVC\EmeciExpediente\obj\Debug\EmeciExpediente.csprojResolveAssemblyReference.cache

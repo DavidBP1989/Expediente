@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewBag.Title = "Vaccines";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Tabla de Inmunizaciones</h1>
+    <p class="description">
+        Es muy importante aplicar las vacunas en las fechas que se indica ya
+        que as&iacute; se puede prevenir correctamente la enfermedad.
+    </p>
+    <div class="section-controls">
+        <a onclick="Save()" class="btn btn-primary">Guardar Cambios</a>
+    </div>
+</div>
+<div class="section-body">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width="110">
+                                        <strong>Vacuna</strong>
+                                    </th>
+                                    <th>
+                                        <div align="center">
+                                            <strong>Enfermedad que previene</strong>
+                                        </div>
+                                    </th>
+                                    <th width="95">
+                                        <div align="center">
+                                            <strong>Dosis</strong>
+                                        </div>
+                                    </th>
+                                    <th width="95">
+                                        <div align="center">
+                                            <strong>Edad</strong>
+                                        </div>
+                                    </th>
+                                    <th width="130">
+                                        <div align="center">
+                                            <strong>Fecha de vacunaci&oacute;n</strong>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{  string color = "";
+                                    int all = ((List<dynamic>)ViewBag.vaccines).Count;
+                                    int i = 0;
+                                    int prev = 0;
+                                    int rowspan = 0;
+                                 }
+
+                                @foreach (dynamic v in (List<dynamic>)ViewBag.vaccines)
+                                {
+                                    if (prev == 0) { prev = (int)v.index; }
+                                    if ((int)v.index != prev || all == i)
+                                    {
+                                        <tr id="row_@prev" style="background-color:@color">
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <a class="btn" onclick="AddRow(@prev);">Agregar otra</a>
+                                            </td>
+                                        </tr>
+                                        prev = (int)v.index;
+                                    }
+
+                                    switch ((int)v.index)
+                                    {
+                                        case 1: color = "#e5fff7"; break;
+                                        case 2: color = "#ffeecc"; break;
+                                        case 3: color = "#edffe5"; break;
+                                        case 4: color = "#ebe5ff"; break;
+                                        case 5: color = "#c2ffa8"; break;
+                                        case 6: color = "#e5ffff"; break;
+                                        case 7: color = "#ffffe5"; break;
+                                        case 8: color = "#fff2e5"; break;
+                                        case 9: color = "#ffe5e5"; break;
+                                        case 10: color = "#d9ffb3"; break;
+                                    }
+
+                                    <tr class="vacc_@v.index" id="id_@v.id" style="background-color:@color">
+                                        @if (v.vaccine != "")
+                                        {
+                                            <td class="rowspan_@v.index">
+                                                <strong>@v.vaccine</strong>
+                                            </td>
+                                        }
+                                        @if (v.sickness != "")
+                                        {
+                                            <td class="rowspan_@v.index">
+                                                <div align="center">@v.sickness</div>
+                                            </td>
+                                        }
+                                        <td>
+                                            <div align="center">@v.dose</div>
+                                        </td>
+                                        <td>
+                                            <div align="center">@v.age</div>
+                                        </td>
+                                        <td>
+                                            <div align="center">
+                                                <input type="text" readonly value="@v.date" class="form-control calendar" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    i++;
+
+                                    if (i == all)
+                                    {
+                                        <tr id="row_@v.index" style="background-color:@color">
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <a class="btn" onclick="AddRow(@v.index)">Agregar otra</a>
+                                            </td>
+                                        </tr>
+                                        prev = (int)v.index;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" data-target="#saveModal" data-toggle="modal" id="showModal"></a>
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+                <h4 class="modal-title" id="myModalLabel">Vacunas</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    ¡Se actualizaron los datos!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function SetPikaDay(elm)
+    {
+        var picker = new Pikaday({
+            field: elm
+            , onSelect: function (e){
+                picker.destroy();
+            }
+        })
+        picker.show();
+    }
+
+    $(function () {
+        $('.calendar').each(function (c) {
+            var picker = new Pikaday({
+                field: this
+            })
+        })
+
+        rowsPans();
+
+        $('#saveModal').on('hidden.bs.modal', function (e) {
+            location.reload();
+        })
+    });
+
+    function rowsPans() {
+        for (var i = 1; i <= 10; i++) {
+            var all = ($('* .vacc_' + i).length + 1);
+            $('* .rowspan_' + i).eq(0).attr('rowspan', all);
+            $('* .rowspan_' + i).eq(1).attr('rowspan', all);
+        }
+    }
+
+    function AddRow(index) {
+        var TR = $('#row_' + index).prev();
+
+        var row = '<tr class="vacc_' + index + '" style="' + TR.attr('style') + '"> \
+                        <td> \
+                            <div align="center"> \
+                                <input type="text" class="form-control" /> \
+                            </div> \
+                        </td> \
+                        <td> \
+                            <div align="center"> \
+                                <input type="text" class="form-control" /> \
+                            </div> \
+                        </td> \
+                        <td> \
+                            <div align="center"> \
+                                <input type="text" class="form-control" onclick="SetPikaDay(this);" readonly /> \
+                            </div> \
+                        </td> \
+                   </tr>';
+
+        TR.after(row);
+        rowsPans();
+    }
+
+
+
+    /*
+        Como se envia los parametros
+        # = (1: actualizacion, 2:agregar)
+        # = id vacuna o index
+        separado por comas y divididos en |
+
+    */
+    function Save()
+    {
+        var req = '';
+        var all = 10;
+        var band = true;
+        for (var i = 1; i <= all; i++)
+        {
+            var rows = $('* .vacc_' + i);
+
+            if (rows.length)
+            {
+                rows.map(function (v) {
+                    var idVaccine = $(rows[v])[0].id.split('_')[1];
+                    var rowL = $(rows[v]).find('input').length;
+                    if (rowL)
+                    {
+                        if (rowL == 1)
+                        {
+                            //Ya existe, solo hay que enviar la fecha
+                            req += 1 + ',' + idVaccine + ',' + $(rows[v]).find('input').val() + '|';
+                        } else
+                        {
+                            var info = '';
+                            $(rows[v]).find('input').each(function (index, tag){
+                                validateForm.input = tag;
+                                if (index == 1)
+                                {
+                                    band = (band && validateForm.IsOnlyEmpty());
+                                } else if (index == 2) band = (band && validateForm.IsOnlyEmpty());
+                                else if (index == 0) band = (band && validateForm.IsOnlyEmpty())
+                                info += ',' + tag.value;
+                            });
+
+                            req += 2 + ',' + i + info + '|';
+                        }
+                    }
+                })
+            }
+        }
+
+        if (req != '')
+            req = req.substring(0, req.length - 1);
+        console.log(req);
+        if (band)
+        {
+            $.ajax({
+                url: 'SaveVaccines'
+                , data: { data: req }
+                , method: 'POST'
+            }).success(function (xres) {
+                if (xres.status == "true") {
+                    $('#saveModal').modal('toggle');
+                }
+            })
+        }
+    }
+</script>
+

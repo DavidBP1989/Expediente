@@ -300,9 +300,23 @@ namespace EmeciExpediente.Controllers
                            select new { P.FechaNacimiento }).FirstOrDefault();
             if (Patient != null && Patient.FechaNacimiento.HasValue)
             {
-                int Months = (DateTime.Now.Year - Patient.FechaNacimiento.Value.Year) * 12;
-                Months += DateTime.Now.Month - Patient.FechaNacimiento.Value.Month;
-                ViewBag.age = (int)(Months / 12);
+                if (cnsult.Count > 0)
+                {
+                    DateTime? QueryDate = cnsult.Single(x => x.idconsulta == id).Fecha.Value;
+                    if (QueryDate.HasValue)
+                    {
+                        int TotalMonths = (QueryDate.Value.Year - Patient.FechaNacimiento.Value.Year) * 12;
+                        TotalMonths += QueryDate.Value.Month - Patient.FechaNacimiento.Value.Month;
+                        ViewBag.age = (int)(TotalMonths / 12);
+                        int RemainingMonths = TotalMonths % 12;
+                        if (RemainingMonths > 0)
+                        {
+                            ViewBag.age = $"{ViewBag.age} año(s) - {RemainingMonths} Mes(es)";
+                        }
+                    }
+                    else ViewBag.age = string.Empty;
+                }
+                else ViewBag.age = string.Empty;
             }
             else ViewBag.age = string.Empty;
 

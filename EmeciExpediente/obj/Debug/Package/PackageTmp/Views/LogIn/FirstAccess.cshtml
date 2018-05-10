@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LogIn.cshtml";
+}
+
+@model Access
+@Html.ValidationSummary(true)
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>N&uacute;mero de Tarjeta</label>
+                <div class="form-inline">
+                    @Html.TextBoxFor(x => x.numberCard1, null, new { @class = "form-control tarjeta-numero", maxlength = 5 })
+                    -
+                    @Html.TextBoxFor(x => x.numberCard2, null, new { @class = "form-control tarjeta-numero", maxlength = 4 })
+                    -
+                    @Html.TextBoxFor(x => x.numberCard3, null, new { @class = "form-control tarjeta-numero", maxlength = 4 })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.password, "Contraseña")
+                @Html.PasswordFor(x => x.password, new { @class = "form-control" })
+            </div>
+            @if (Model.accessDenied)
+            {
+                <span class="alert alert-danger help-block">
+                    N&uacute;mero de tarjeta o contraseña invalida
+                </span>
+            }
+            else if (Model.expiredCard)
+            {
+                <span class="alert alert-danger help-block">
+                    ¡Lo sentimos! En nuestro registros aparece su tarjeta con m&aacute;s de 30 d&iacute;as de vencida.
+                    <br />
+                    Si considera que esto es un error, favor de comunicarse a <a href="mailto:servicio@emeci.com">servicio@emeci.com</a> o
+                    con la persona a la cual liquid&oacute; el importe de su servicio de mantenimiento.
+                </span>
+            }
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+            <hr />
+            @Html.ActionLink("Recordar Contraseña", "RememberPassword", "LogIn", null, new { @class = "bnt btn-link" })
+            <!--<a href="#" class="btn btn-link pull-right">Registro/Activaci&oacute;n</a>-->
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        $('.form-inline input[type="text"]').keypress(function (event) {
+            var num = (event.charCode) ? event.which : event.keyCode;
+            return (num == 8 || (num >= 48 && num <= 57));
+        })
+
+        localStorage.showMembership = true;
+        
+        $('#numberCard1').keypress(function () {
+            if ($(this).val().length >= 4)
+            setTimeout(function()
+                {
+                    $('#numberCard2').focus();
+                }, 300);
+           })
+
+        $('#numberCard2').keypress(function () {
+            
+            if ($(this).val().length >= 3)
+                setTimeout(function () {
+                    $('#numberCard3').focus();
+                }, 300);
+
+        })
+    })
+</script>

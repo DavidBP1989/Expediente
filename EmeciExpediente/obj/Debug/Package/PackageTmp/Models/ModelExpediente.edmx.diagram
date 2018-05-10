@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6bbf2ebbf0b45e9811f950cef13826b" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="emeciModel.Especialidades" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="emeciModel.CatCategoEstudios" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.catdiagnostico" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.CatEstudios" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="emeciModel.catrecetas" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="emeciModel.ConsultaGinecologa" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.ConsultaObstetrica" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.Consultas" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="emeciModel.DatosTarjeta" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.Diagnosticos" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="emeciModel.DiagnosticosExc" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="emeciModel.EstudiosGab" Width="1.5" PointX="9" PointY="5.5" />
+        <EntityTypeShape EntityType="emeciModel.EstudiosLab" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="emeciModel.Familiares" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.Patologias" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="emeciModel.Recetas" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.Registro" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="emeciModel.Vacunas" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="emeciModel.Estados" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="emeciModel.Estudios" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="emeciModel.Imagenes" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="emeciModel.Medico" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="emeciModel.Tarjetas" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="emeciModel.TemaComentarios" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="emeciModel.Temas" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="emeciModel.trackermedicos" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="emeciModel.Ciudades" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="emeciModel.Paciente" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="emeciModel.DosisAplicadaVacuna" Width="1.5" PointX="15.375" PointY="7.75" />
+        <EntityTypeShape EntityType="emeciModel.ListaVacunas" Width="1.5" PointX="11.375" PointY="16.75" />
+      </Diagram>
+      <Diagram DiagramId="49d90e919c654cde963563630e764768" Name="Diagram2" >
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
